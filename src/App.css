@@ -1,6 +1,7 @@
 :root {
-  --lightest-green: #dcfce7;
+  --lightest-green: #f0fdf4;
   --darkest-green: #052e16;
+  --mid-wood: #704327;
 }
 
 * {
@@ -13,4 +14,39 @@
 body {
   background-color: var(--lightest-green);
   color: var(--darkest-green);
+  font-weight: 1.5;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  border-bottom: double 1rem var(--mid-wood);
+  padding: 2%;
+}
+
+.header-logo {
+  width: 13vw;
+  height: auto;
+}
+
+.shopping-icon {
+  width: 3rem;
+  height: auto;
+}
+
+.left-header {
+  display: flex;
+  align-items: end;
+  gap: 4em;
+}
+
+ul {
+  display: flex;
+  gap: 2.3rem;
+  align-items: end;
+}
+
+li {
+  list-style: none;
 }
