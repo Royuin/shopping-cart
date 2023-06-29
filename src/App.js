@@ -1,8 +1,24 @@
 import './App.css';
+import logoOutline from './assets/logo-with-outline.png';
+import shoppingIcon from './assets/shopping-outline.svg';
 
 function App() {
   return (
     <div className="App">
+      <header>
+        <div className='left-header'>
+        <img className='header-logo' src={logoOutline} alt='Logo of a tea kettle with matcha tea on the side.' />
+        <h1> Reverie Tea </h1>
+        </div>
+        <nav>
+          <ul>
+            <li>Home</li>
+            <li>Products</li>
+            <li>About Us</li>
+            <li><img className='shopping-icon' src={shoppingIcon} alt='icon of shopping bag' /></li>
+          </ul>
+        </nav>
+      </header>
     </div>
   );
 }
