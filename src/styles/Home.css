@@ -1,0 +1,44 @@
+:root {
+  --lightest-green: #f0fdf4;
+  --darkest-green: #052e16;
+  --mid-green: #22c55e;
+  --mid-wood: #704327;
+}
+
+.home-header { 
+  display: flex;
+  place-content: center;
+  flex-direction: column;
+}
+
+.home-header-img {
+  width: 100vw;
+  height: 80%;
+  position: absolute;
+  z-index: -1;
+}
+
+.home-img-text {
+  font-size: 1.5rem;
+  color: var(--lightest-green);
+  margin: 5% 0 0 5%;
+}
+
+.support-health {
+  color: var(--mid-green);
+}
+
+
+.home-shop-now {
+  background-color: var(--mid-wood);
+  border: double 5px var(--darkest-green);
+  color: var(--lightest-green);
+  padding: 20px 40px 20px 40px;
+  border-radius: 5px;
+  }
+
+.home-shop-now:hover {
+  background-color: var(--mid-green);
+  cursor: pointer;
+}
+
