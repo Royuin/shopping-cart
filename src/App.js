@@ -19,6 +19,14 @@ function App() {
           </ul>
         </nav>
       <Home />
+      <footer>
+        <img src={logoOutline} alt='Logo of a tea kettle with matcha tea on the side.' />
+      <h5>Reverie Tea</h5> 
+        <p>Copyright &copy; <a href='https://github.com/Royuin'> Royuin </a></p>
+        <a href="https://www.flaticon.com/free-icons/smart-cart" title="smart cart icons">Smart cart icons created by Muhammad_Usman - Flaticon</a>
+        <br />
+        <a href="https://www.flaticon.com/free-icons/matcha" title="matcha icons">Matcha icons created by amonrat rungreangfangsai - Flaticon</a>
+      </footer>
     </div>
   );
 }
