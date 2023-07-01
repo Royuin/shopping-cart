@@ -18,7 +18,7 @@ body {
   line-height: 1.5;
 }
 
-nav {
+.site-nav {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -46,7 +46,7 @@ nav {
   gap: 4em;
 }
 
-ul {
+.site-nav > ul {
   display: flex;
   gap: 2.3rem;
   align-items: flex-end;

@@ -8,7 +8,7 @@ import Products from './components/Products';
 function App() {
   return (
     <div className="App">
-        <nav>
+        <nav className='site-nav' aria-label='site'>
         <div className='left-nav'>
         <img className='header-logo' src={logoOutline} alt='Logo of a tea kettle with matcha tea on the side.' />
         <h1> Reverie Tea </h1>
