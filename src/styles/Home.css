@@ -29,7 +29,7 @@
   color: var(--mid-green);
 }
 
-.home-shop-now {
+.home-shop-now  {
   background-color: var(--mid-wood);
   border: double 5px var(--darkest-green);
   color: var(--lightest-green);
@@ -42,7 +42,7 @@
   cursor: pointer;
 }
 
-.top-sellers-heading {
+.top-sellers-heading, .why-us-heading {
   text-align: center;
     font-size: clamp(1.5rem, 3vw, 50px);
   color: var(--darkest-green);
@@ -60,4 +60,34 @@
 .seller-img {
   width: 100%;
   border: 5px groove var(--mid-wood);
+}
+
+.why-us-section {
+  background-image: url(../assets/green-leaf-plant.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 10px 0 35px 0;
+}
+
+.why-us-wrapper {
+  padding: 2% 5% 2% 5%;
+  background-color: var(--mid-wood);
+  color: var(--lightest-green);
+  text-align: center;
+  margin: 15px 15% 0 15%;
+  border-radius: 8px;
+}
+
+.learn-button {
+  margin-top: 10px;
+  background-color: var(--darkest-green);
+  border: double 3px var(--mid-wood);
+  color: var(--lightest-green);
+  padding: 10px 20px 10px 20px;
+  border-radius: 5px;
+}
+
+.learn-button:hover {
+  background-color: var(--mid-green);
+  cursor: pointer;
 }
