@@ -1,7 +1,9 @@
 import './App.css';
+import {Routes, Route, Link} from 'react-router-dom';
 import logoOutline from './assets/logo-with-outline.png';
 import cartIcon from './assets/green-cart.png';
 import Home from './components/Home';
+import Products from './components/Products';
 
 function App() {
   return (
@@ -12,13 +14,16 @@ function App() {
         <h1> Reverie Tea </h1>
         </div>
           <ul>
-            <li>Home</li>
-            <li>Products</li>
+            <li><Link to='/'>Home</Link></li>
+            <li><Link to='/products'>Products</Link></li>
             <li>About Us</li>
             <li><img className='shopping-icon' src={cartIcon} alt='icon of shopping bag' /></li>
           </ul>
         </nav>
-      <Home />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/products' element={<Products />} />
+      </Routes>
       <footer>
         <img src={logoOutline} alt='Logo of a tea kettle with matcha tea on the side.' />
       <h5>Reverie Tea</h5> 
