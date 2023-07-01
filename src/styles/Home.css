@@ -53,8 +53,8 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-auto-rows: 1fr;
-  padding: 35px;
-  gap: 15px;
+  gap: 3vw;
+  padding: 35px 5% 35px 5%;
 }
 
 .seller-img {
