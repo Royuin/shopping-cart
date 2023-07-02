@@ -8,6 +8,7 @@ function ProductsLayout() {
       <img src={matchaTableWhisk} alt='Matcha powder and whisk on a table' />
       <h2 className='our-products-heading'>Our Products</h2>
     </header>
+      <div className='products-with-aside'>
     <aside>
       <nav aria-label='products'>
         <ul>
@@ -21,6 +22,7 @@ function ProductsLayout() {
       </nav>
     </aside>
       <Outlet />
+      </div>
   </>
   )
 }
