@@ -37,5 +37,45 @@ aside {
 
 aside > ul {
   display: flex;
-    flex-direction: column;
+  flex-direction: column;
+}
+
+.products-with-aside {
+  padding-top: 125px;
+  display: flex;
+}
+
+.products-with-aside > main {
+  width: 100%;
+}
+
+.products-with-aside > main > h2 {
+  font-size: clamp(1rem, 2.5vw, 35px);
+  text-align: center;
+}
+
+.products-with-aside > main > p {
+  text-align: center;
+}
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-auto-rows: 40vw;
+  padding: 3vw 5vw 3vw 5vw;
+  gap: 2vw;
+  margin-bottom: 15em;
+}
+
+.product-list > li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.product-list > li > img {
+  width: 70%;
+  height: 70%;
+  border: 5px double var(--mid-wood);
 }
