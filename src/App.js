@@ -6,6 +6,7 @@ import Home from './components/Home';
 import Products from './components/Products';
 import Matcha from './components/Matcha';
 import ProductsLayout from './ProductsLayout';
+import GreenTea from './components/GreenTea';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path='/products' element={<ProductsLayout />}>       
           <Route index element={<Products />} />
           <Route path='matcha' element={<Matcha />} />
+          <Route path='green-tea' element={<GreenTea />} />
         </Route>
       </Routes>
 
