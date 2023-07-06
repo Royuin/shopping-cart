@@ -2,13 +2,14 @@ import '../styles/Products.css';
 import { useOutletContext } from 'react-router-dom';
 
 function Products() {
-  const products = useOutletContext();
+
+  const productsArray = useOutletContext();
 
   function renderProducts() {
-    const productItems = products.map((product) => {
+    const productItems = productsArray.map((product) => {
       return (
         <li key={product.id}>
-          <img src={product.src} alt='' />
+          <img src={product.src} alt={product.alt} />
           <p>{product.name}</p>
           <p>${product.price}</p>
         </li>
