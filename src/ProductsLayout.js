@@ -63,7 +63,7 @@ function ProductsLayout() {
       price: 10.79,
       id: uniqid(),
     },
-    {name: 'Xianzhi Green',
+    { name: 'Xianzhi Green',
       src: xianzhi,
       alt: 'Long dried jade green leaves',
       type: 'green',
