@@ -14,7 +14,7 @@ import matchaCeremonial from './assets/matcha-ceremonial-powder.jpg';
 import uniqid from 'uniqid';
 
 function ProductsLayout() {
-  const [productsArray, setProductsArray] = useState([
+  const [productsArrayContext, setProductsArrayContext] = useState([
     { name: 'Green Jasmine',
       src: jasmine,
       alt: 'dried green jasmine tea leaves',
@@ -116,7 +116,7 @@ function ProductsLayout() {
             </ul>
           </nav>
         </aside>
-        <Outlet context={productsArray} />
+        <Outlet context={productsArrayContext} />
       </div>
     </>
   )
