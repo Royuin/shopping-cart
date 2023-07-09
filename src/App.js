@@ -1,5 +1,7 @@
 import './App.css';
 import {Routes, Route, Link} from 'react-router-dom';
+import { useState } from 'react';
+import uniqid from 'uniqid';
 import logoOutline from './assets/logo-with-outline.png';
 import cartIcon from './assets/green-cart.png';
 import Home from './components/Home';
@@ -7,8 +9,102 @@ import Products from './components/Products';
 import Matcha from './components/Matcha';
 import ProductsLayout from './ProductsLayout';
 import GreenTea from './components/GreenTea';
+import jasmine from './assets/jasmine-leaves.jpeg';
+import chamomile from './assets/chamomile-leaves.jpg';
+import black from './assets/black-tea-leaves.jpg';
+import ceylon from './assets/ceylon-tea.jpg';
+import rooibos from './assets/rooibos-tea.jpg';
+import mallow from './assets/mallow-flowers.jpg';
+import xianzhi from './assets/xianzhi-green.jpg';
+import reverieGreenBlend from './assets/reverie-green-blend.jpg';
+import matchaCooking from './assets/matcha-cooking-powder.jpg';
+import matchaCeremonial from './assets/matcha-ceremonial-powder.jpg';
 
 function App() {
+
+  const [productsArray, setProducts] = useState([
+    { name: 'Green Jasmine',
+      src: jasmine,
+      alt: 'dried green jasmine tea leaves',
+      type: 'green',
+      description: 'This is where it would go if you had one and a real product',
+      price: 15.65,
+      id: uniqid(),
+    },
+    { name: 'Chamomile',
+      src: chamomile,
+      alt: 'dried chamomile flowsers',
+      type: 'herbal',
+      description: 'This is where it would go if you had one and a real product',
+      price: 12.39,
+      id: uniqid(),
+    },
+    { name: 'Black',
+      src: black,
+      alt: 'dried black tea leaves',
+      type: 'black',
+      description: 'This is where it would go if you had one and a real product',
+      price: 13.72,
+      id: uniqid(),
+    },
+    { name: 'Ceylon Green',
+      src: ceylon,
+      alt: 'dried dark green tea leaves',
+      type: 'green',
+      description: 'This is where it would go if you had one and a real product',
+      price: 17.24,
+      id: uniqid(),
+    },
+    { name: 'Rooibos',
+      src: rooibos,
+      alt: 'Dried red and orange tea leaves with bits of green',
+      type: 'herbal',
+      description: 'This is where it would go if you had one and a real product',
+      price: 17.73,
+      id: uniqid(),
+    },
+    {name: 'Mallow',
+      src: mallow,
+      alt: 'Dried purple flowers with green stems',
+      type: 'herbal',
+      description: 'This is where it would go if you had one and a real product',
+      price: 10.79,
+      id: uniqid(),
+    },
+    {name: 'Xianzhi Green',
+      src: xianzhi,
+      alt: 'Long dried jade green leaves',
+      type: 'green',
+      description: 'This is where it would go if you had one and a real product',
+      price: 21.97,
+      id: uniqid(),
+    },
+    { name: 'Reverie Green Blend',
+      src: reverieGreenBlend,
+      alt: 'Dried green leaves with bits of blue',
+      type: 'green',
+      description: 'This is where it would go if you had one and a real product',
+      price: 18.14,
+      id: uniqid(),
+    },
+    { name: 'Matcha Cooking Grade',
+      src: matchaCooking,
+      alt: 'Dull green powder',
+      type: 'matcha',
+      description: 'This is where it would go if you had one and a real product',
+      price: 23.28,
+      id: uniqid(),
+    },
+    { name: 'Matcha Ceremonial Grade',
+      src: matchaCeremonial,
+      alt: 'Bright green powder',
+      type: 'matcha',
+      description: 'This is where it would go if you had one and a real product',
+      price: 29.59,
+      id: uniqid(),
+    }
+  ])
+
   return (
     <div className="App">
       <nav className='site-nav' aria-label='site'>
@@ -27,9 +123,9 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/products' element={<ProductsLayout />}>       
-          <Route index element={<Products />} />
-          <Route path='matcha' element={<Matcha />} />
-          <Route path='green-tea' element={<GreenTea />} />
+          <Route index element={<Products productsArray={productsArray} />} />
+          <Route path='matcha' element={<Matcha productsArray={productsArray}/>} />
+          <Route path='green-tea' element={<GreenTea productsArray={productsArray}/>} />
         </Route>
       </Routes>
 
