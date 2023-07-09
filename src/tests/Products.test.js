@@ -1,10 +1,8 @@
-import {render, screen, } from '@testing-library/react';
+import { render, screen, } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Products, {useOutletContext} from '../components/Products';
+import Products from '../components/Products';
 import Matcha from '../components/Matcha';
-import ProductsLayout from '../ProductsLayout';
 import React from 'react';
-// import { useOutletContext } from 'react-router-dom';
 
 describe('renderProducts functions for different products pages', () => {
 
@@ -37,28 +35,17 @@ describe('renderProducts functions for different products pages', () => {
 
   it('Products renderProducts renders all products in array', async () => {
 
-    const ProductsLayout = React.createContext(productsMock);
-   // useOutletContext.mockReturnValue(productsMock);
-
-   render(
-      <ProductsLayout.Provider value={productsMock}>
-      <Products  />
-      </ProductsLayout.Provider>
-    )
-
-
-    expect(screen.getByAltText('test text1')).toBeInTheDocument();
-    expect(screen.getByAltText('test text2')).toBeInTheDocument();
-    expect(screen.getByAltText('test text3')).toBeInTheDocument();
+   render(<Products productsArray={productsMock} />)
+    
+    const listItems = screen.getAllByRole('listitem');
+    expect(listItems.length).toBe(4);
   })
 
-  // it('Matcha renderProducts only renders products with matcha type', () => {
-  //
-  //   render( <Matcha productsArray={productsMock} />);
-  //
-  //   expect(screen.getByAltText('test text2')).toBeInTheDocument();
-  //   expect(screen.queryByAltText('test text1')).toBeNull();
-  //   expect(screen.queryByAltText('test text3')).toBeNull();
-  //   expect(screen.queryByAltText('test text4')).toBeNull();
-  // })
+  it('Matcha renderProducts only renders products with matcha type', () => {
+
+    render( <Matcha productsArray={productsMock} />);
+
+    const listItems = screen.getAllByRole('listitem');
+    expect(listItems.length).toBe(1);
+  })
 });
