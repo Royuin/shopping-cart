@@ -16,7 +16,7 @@ function ProductsLayout() {
               <li><Link to='/products/matcha'>Matcha</Link></li>
               <li><Link to='/products/green-tea'>Green Teas</Link></li>
               <li>Black Teas</li>
-              <li>Herbal</li>
+              <li><Link to='/products/herbal-tea'>Herbal</Link></li>
             </ul>
           </nav>
         </aside>

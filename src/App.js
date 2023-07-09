@@ -9,6 +9,7 @@ import Products from './components/Products';
 import Matcha from './components/Matcha';
 import ProductsLayout from './ProductsLayout';
 import GreenTea from './components/GreenTea';
+import HerbalTea from './components/Herbal';
 import jasmine from './assets/jasmine-leaves.jpeg';
 import chamomile from './assets/chamomile-leaves.jpg';
 import black from './assets/black-tea-leaves.jpg';
@@ -126,6 +127,7 @@ function App() {
           <Route index element={<Products productsArray={productsArray} />} />
           <Route path='matcha' element={<Matcha productsArray={productsArray}/>} />
           <Route path='green-tea' element={<GreenTea productsArray={productsArray}/>} />
+          <Route path='herbal-tea' element={<HerbalTea productsArray={productsArray}/>} />
         </Route>
       </Routes>
 
