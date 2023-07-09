@@ -1,17 +1,5 @@
-import {Routes, Route, Outlet, Link} from 'react-router-dom';
+import { Outlet, Link} from 'react-router-dom';
 import matchaTableWhisk from './assets/matcha-table-whisk.jpg';
-import { useState } from 'react';
-import jasmine from './assets/jasmine-leaves.jpeg';
-import chamomile from './assets/chamomile-leaves.jpg';
-import black from './assets/black-tea-leaves.jpg';
-import ceylon from './assets/ceylon-tea.jpg';
-import rooibos from './assets/rooibos-tea.jpg';
-import mallow from './assets/mallow-flowers.jpg';
-import xianzhi from './assets/xianzhi-green.jpg';
-import reverieGreenBlend from './assets/reverie-green-blend.jpg';
-import matchaCooking from './assets/matcha-cooking-powder.jpg';
-import matchaCeremonial from './assets/matcha-ceremonial-powder.jpg';
-import uniqid from 'uniqid';
 
 function ProductsLayout() {
   return (
@@ -32,7 +20,7 @@ function ProductsLayout() {
             </ul>
           </nav>
         </aside>
-        <Outlet context={productsArrayContext} />
+        <Outlet />
       </div>
     </>
   )
