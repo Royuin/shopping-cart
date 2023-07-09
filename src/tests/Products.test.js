@@ -2,7 +2,10 @@ import { render, screen, } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Products from '../components/Products';
 import Matcha from '../components/Matcha';
+import GreenTea from '../components/GreenTea';
 import React from 'react';
+import BlackTea from '../components/Black';
+import HerbalTea from '../components/Herbal';
 
 describe('renderProducts functions for different products pages', () => {
 
@@ -35,8 +38,8 @@ describe('renderProducts functions for different products pages', () => {
 
   it('Products renderProducts renders all products in array', async () => {
 
-   render(<Products productsArray={productsMock} />)
-    
+    render(<Products productsArray={productsMock} />)
+
     const listItems = screen.getAllByRole('listitem');
     expect(listItems.length).toBe(4);
   })
@@ -44,6 +47,28 @@ describe('renderProducts functions for different products pages', () => {
   it('Matcha renderProducts only renders products with matcha type', () => {
 
     render( <Matcha productsArray={productsMock} />);
+
+    const listItems = screen.getAllByRole('listitem');
+    expect(listItems.length).toBe(1);
+  })
+
+  it('GreenTea renderProducts only renders products with green type', () => {
+
+    render( <GreenTea productsArray={productsMock} />);
+
+    const listItems = screen.getAllByRole('listitem');
+    expect(listItems.length).toBe(1);
+  })
+  it('Herbal renderProducts only renders products with herbal type', () => {
+
+    render( <HerbalTea productsArray={productsMock} />);
+
+    const listItems = screen.getAllByRole('listitem');
+    expect(listItems.length).toBe(1);
+  })
+  it('Black renderProducts only renders products with black type', () => {
+
+    render( <BlackTea productsArray={productsMock} />);
 
     const listItems = screen.getAllByRole('listitem');
     expect(listItems.length).toBe(1);
