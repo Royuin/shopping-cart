@@ -20,6 +20,7 @@ import xianzhi from './assets/xianzhi-green.jpg';
 import reverieGreenBlend from './assets/reverie-green-blend.jpg';
 import matchaCooking from './assets/matcha-cooking-powder.jpg';
 import matchaCeremonial from './assets/matcha-ceremonial-powder.jpg';
+import BlackTea from './components/Black';
 
 function App() {
 
@@ -128,6 +129,7 @@ function App() {
           <Route path='matcha' element={<Matcha productsArray={productsArray}/>} />
           <Route path='green-tea' element={<GreenTea productsArray={productsArray}/>} />
           <Route path='herbal-tea' element={<HerbalTea productsArray={productsArray}/>} />
+          <Route path='black-tea' element={<BlackTea productsArray={productsArray}/>} />
         </Route>
       </Routes>
 
