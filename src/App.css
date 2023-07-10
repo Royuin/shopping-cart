@@ -52,6 +52,14 @@ body {
   align-items: flex-end;
 }
 
+.site-nav > ul > li > a {
+  color: var(--mid-green);
+}
+
+.site-nav > ul > li > a:hover {
+  color: var(--lightest-green);
+}
+
 li {
   list-style: none;
 }
