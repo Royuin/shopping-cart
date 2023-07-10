@@ -3,6 +3,7 @@ import greenField from '../assets/green-grass-field.jpeg';
 import jasmineLeaves from '../assets/jasmine-leaves.jpeg';
 import blackLeaves from '../assets/black-tea-leaves.jpg';
 import chamomileLeaves from '../assets/chamomile-leaves.jpg';
+import { Link } from 'react-router-dom';
 
 function Home() {
   return (
@@ -12,7 +13,7 @@ function Home() {
         <div className='home-img-text'>
           <p className='support-health'> <em> Support your health </em> </p>
           <h2> Only the finest of matcha and teas.</h2>
-          <button className='home-shop-now'>Shop Now</button>
+          <Link to='/products' className='home-shop-now'>Shop Now</Link>
         </div>
       </header>
       <main>

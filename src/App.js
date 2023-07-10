@@ -5,6 +5,7 @@ import uniqid from 'uniqid';
 import logoOutline from './assets/logo-with-outline.png';
 import cartIcon from './assets/green-cart.png';
 import Home from './components/Home';
+import About from './components/About';
 import Products from './components/Products';
 import Matcha from './components/Matcha';
 import ProductsLayout from './ProductsLayout';
@@ -117,7 +118,7 @@ function App() {
         <ul>
           <li><Link to='/'>Home</Link></li>
           <li><Link to='/products'>Products</Link></li>
-          <li>About Us</li>
+          <li><Link to='/about'>About Us</Link></li>
           <li><img className='shopping-icon' src={cartIcon} alt='icon of shopping bag' /></li>
         </ul>
       </nav>
@@ -131,6 +132,7 @@ function App() {
           <Route path='herbal-tea' element={<HerbalTea productsArray={productsArray}/>} />
           <Route path='black-tea' element={<BlackTea productsArray={productsArray}/>} />
         </Route>
+        <Route path='/about' element={<About />} />
       </Routes>
 
       <footer>
