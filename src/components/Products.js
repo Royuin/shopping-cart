@@ -6,7 +6,12 @@ function Products({productsArray}) {
     const productItems = productsArray.map((product) => {
       return (
         <li key={product.id} >
+          <div className='product-img-wrapper'>
           <img src={product.src} alt={product.alt} />
+          <div className='product-img-overlay'>
+          <p className='view-text'>View</p>
+          </div>
+          </div>
           <p>{product.name}</p>
           <p>${product.price}</p>
         </li>
