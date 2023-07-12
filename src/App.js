@@ -9,6 +9,7 @@ import About from './components/About';
 import Products from './components/Products';
 import Matcha from './components/Matcha';
 import ProductsLayout from './ProductsLayout';
+import ProductDetailsLayout from './components/ProductDetailsLayout';
 import GreenTea from './components/GreenTea';
 import HerbalTea from './components/Herbal';
 import jasmine from './assets/jasmine-leaves.jpeg';
@@ -24,6 +25,7 @@ import matchaCeremonial from './assets/matcha-ceremonial-powder.jpg';
 import BlackTea from './components/Black';
 
 function App() {
+  const [cart, setCart] = useState([]);
 
   const [productsArray, setProducts] = useState([
     { name: 'Green Jasmine',
@@ -42,7 +44,7 @@ function App() {
       price: 12.39,
       id: uniqid(),
     },
-    { name: 'Black',
+    { name: 'Russian Caravan Black',
       src: black,
       alt: 'dried black tea leaves',
       type: 'black',
@@ -132,6 +134,7 @@ function App() {
           <Route path='herbal-tea' element={<HerbalTea productsArray={productsArray}/>} />
           <Route path='black-tea' element={<BlackTea productsArray={productsArray}/>} />
         </Route>
+        <Route path='/product/:id' element={<ProductDetailsLayout />} />
         <Route path='/about' element={<About />} />
       </Routes>
 
