@@ -75,7 +75,7 @@ aside > ul {
   flex-direction: column;
 }
 
-.product-list > li > div > img {
+.product-list > li > a > img {
   width: 100%;
   height: 100%;
   border: 5px double var(--mid-wood);
