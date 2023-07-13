@@ -16,6 +16,18 @@
 
 .details-main {
  display: flex;
-  padding: 2rem 5% 2rem 5%;
+  padding: 2rem 11vw 2rem 11vw;
   gap: 8%;
+  margin-bottom: 5%;
+}
+
+.details-right {
+  display: flex;
+  flex-direction: column;
+  padding-left: 8%;
+  gap: 2%;
+}
+
+.details-right > div > h4 {
+  margin-bottom: 10px;
 }
