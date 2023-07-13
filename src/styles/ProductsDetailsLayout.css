@@ -1,0 +1,21 @@
+:root {
+  --lightest-green: #f0fdf4;
+  --darkest-green: #052e16;
+  --mid-green: #22c55e;
+  --mid-wood: #704327;
+  --light-wood: #DEB887;
+  --img-overlay: rgba(112, 67, 39, 75%);
+}
+
+.details-main > img {
+  width: clamp(200px, 35vw, 800px);
+    height: auto;
+  border: 1rem double var(--mid-wood);
+  border-radius: 10px;
+}
+
+.details-main {
+ display: flex;
+  padding: 2rem 5% 2rem 5%;
+  gap: 8%;
+}
