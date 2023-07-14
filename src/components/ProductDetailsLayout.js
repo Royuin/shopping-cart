@@ -12,10 +12,11 @@ import matchaCooking from '../assets/matcha-cooking-powder.jpg';
 import matchaCeremonial from '../assets/matcha-ceremonial-powder.jpg';
 
 
-function ProductDetailsLayout() {
+function ProductDetailsLayout( addToCart) {
   const { id } = useParams() 
   let {state} = useLocation();
-  const product = state.value
+  console.log(addToCart.addToCart);
+  const product = state.value;
 
   return (
     <>
@@ -24,7 +25,7 @@ function ProductDetailsLayout() {
         <div className='details-right'>
           <h2>{id}</h2>
           <h4>Tasting Notes: <span>Buzzword, Buzzword, Buzzword</span></h4>
-          <div classname='details-wrap'>
+          <div className='details-wrap'>
             <h4>Details</h4>
             <p>{product.description}. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
           </div>
@@ -34,11 +35,11 @@ function ProductDetailsLayout() {
           </div>
           <br />
           <p>Price per 3 oz: ${product.price}</p>
-          <label for='quantity'>
+          <label htmlFor='quantity'>
             <input type='number' name='quantity' id='quantity' />
           </label>
-          <p><em>Approximatley 40 servings</em></p>
-          <button>Add To Cart - ${product.price}</button>
+          <p><em>Approximately 40 servings</em></p>
+          <button  >Add To Cart - ${product.price}</button>
         </div>
       </main>
     </>
