@@ -1,11 +1,12 @@
 import './App.css';
-import {Routes, Route, Link} from 'react-router-dom';
-import { useState } from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import uniqid from 'uniqid';
 import logoOutline from './assets/logo-with-outline.png';
 import cartIcon from './assets/green-cart.png';
 import Home from './components/Home';
 import About from './components/About';
+import Cart from './components/Cart';
 import Products from './components/Products';
 import Matcha from './components/Matcha';
 import ProductsLayout from './ProductsLayout';
@@ -28,123 +29,189 @@ function App() {
   const [cart, setCart] = useState([]);
 
   const [productsArray, setProducts] = useState([
-    { name: 'Green Jasmine',
+    {
+      name: 'Green Jasmine',
       src: jasmine,
       alt: 'dried green jasmine tea leaves',
       type: 'green',
-      description: 'This is where a description would go if you had one and a real product',
+      description:
+      'This is where a description would go if you had one and a real product',
       price: 15.65,
       id: uniqid(),
     },
-    { name: 'Chamomile',
+    {
+      name: 'Chamomile',
       src: chamomile,
       alt: 'dried chamomile flowsers',
       type: 'herbal',
-      description: 'This is where a description would go if you had one and a real product',
-     price: 12.39,
+      description:
+      'This is where a description would go if you had one and a real product',
+      price: 12.39,
       id: uniqid(),
     },
-    { name: 'Russian Caravan Black',
+    {
+      name: 'Russian Caravan Black',
       src: black,
       alt: 'dried black tea leaves',
       type: 'black',
-      description: 'This is where a description would go if you had one and a real product',
+      description:
+      'This is where a description would go if you had one and a real product',
       price: 13.72,
       id: uniqid(),
     },
-    { name: 'Ceylon Green',
+    {
+      name: 'Ceylon Green',
       src: ceylon,
       alt: 'dried dark green tea leaves',
       type: 'green',
-      description: 'This is where a description would go if you had one and a real product',
+      description:
+      'This is where a description would go if you had one and a real product',
       price: 17.24,
       id: uniqid(),
     },
-    { name: 'Rooibos',
+    {
+      name: 'Rooibos',
       src: rooibos,
       alt: 'Dried red and orange tea leaves with bits of green',
       type: 'herbal',
-      description: 'This is where a description would go if you had one and a real product',
+      description:
+      'This is where a description would go if you had one and a real product',
       price: 17.73,
       id: uniqid(),
     },
-    {name: 'Mallow',
+    {
+      name: 'Mallow',
       src: mallow,
       alt: 'Dried purple flowers with green stems',
       type: 'herbal',
-      description: 'This is where a description would go if you had one and a real product',
+      description:
+      'This is where a description would go if you had one and a real product',
       price: 10.79,
       id: uniqid(),
     },
-    {name: 'Xianzhi Green',
+    {
+      name: 'Xianzhi Green',
       src: xianzhi,
       alt: 'Long dried jade green leaves',
       type: 'green',
-      description: 'This is where a description would go if you had one and a real product',
+      description:
+      'This is where a description would go if you had one and a real product',
       price: 21.97,
       id: uniqid(),
     },
-    { name: 'Reverie Green Blend',
+    {
+      name: 'Reverie Green Blend',
       src: reverieGreenBlend,
       alt: 'Dried green leaves with bits of blue',
       type: 'green',
-      description: 'This is where a description would go if you had one and a real product',
+      description:
+      'This is where a description would go if you had one and a real product',
       price: 18.14,
       id: uniqid(),
     },
-    { name: 'Matcha Cooking Grade',
+    {
+      name: 'Matcha Cooking Grade',
       src: matchaCooking,
       alt: 'Dull green powder',
       type: 'matcha',
-      description: 'This is where a description would go if you had one and a real product',
+      description:
+      'This is where a description would go if you had one and a real product',
       price: 23.28,
       id: uniqid(),
     },
-    { name: 'Matcha Ceremonial Grade',
+    {
+      name: 'Matcha Ceremonial Grade',
       src: matchaCeremonial,
       alt: 'Bright green powder',
       type: 'matcha',
-      description: 'This is where a description would go if you had one and a real product',
+      description:
+      'This is where a description would go if you had one and a real product',
       price: 29.59,
       id: uniqid(),
-    }
-  ])
+    },
+  ]);
+
+  function addToCart(product, quantity) {
+    product.quantity = quantity;
+    setCart(previous => [...previous, product]);
+  }
 
   return (
     <div className="App">
-      <nav className='site-nav' aria-label='site'>
-        <div className='left-nav'>
-          <img className='header-logo' src={logoOutline} alt='Logo of a tea kettle with matcha tea on the side.' />
+      <nav className="site-nav" aria-label="site">
+        <div className="left-nav">
+          <img
+            className="header-logo"
+            src={logoOutline}
+            alt="Logo of a tea kettle with matcha tea on the side."
+          />
           <h1> Reverie Tea </h1>
         </div>
         <ul>
-          <li><Link to='/'>Home</Link></li>
-          <li><Link to='/products'>Products</Link></li>
-          <li><Link to='/about'>About Us</Link></li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/products">Products</Link>
+          </li>
+          <li>
+            <Link to="/about">About Us</Link>
+          </li>
           <li><img className='shopping-icon' src={cartIcon} alt='icon of shopping bag' /></li>
         </ul>
       </nav>
 
       <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/products' element={<ProductsLayout />}>       
-          <Route index element={<Products productsArray={productsArray} />} />
-          <Route path='matcha' element={<Matcha productsArray={productsArray}/>} />
-          <Route path='green-tea' element={<GreenTea productsArray={productsArray}/>} />
-          <Route path='herbal-tea' element={<HerbalTea productsArray={productsArray}/>} />
-          <Route path='black-tea' element={<BlackTea productsArray={productsArray}/>} />
+        <Route path="/" element={<Home />} />
+        <Route path="/products" element={<ProductsLayout />}>
+          <Route index element={<Products productsArray={productsArray} cart={cart} />} />
+          <Route
+            path="matcha"
+            element={<Matcha productsArray={productsArray} />}
+          />
+          <Route
+            path="green-tea"
+            element={<GreenTea productsArray={productsArray} />}
+          />
+          <Route
+            path="herbal-tea"
+            element={<HerbalTea productsArray={productsArray} />}
+          />
+          <Route
+            path="black-tea"
+            element={<BlackTea productsArray={productsArray} />}
+          />
         </Route>
-        <Route path='/product/:id' element={<ProductDetailsLayout />} />
-        <Route path='/about' element={<About />} />
+        <Route
+          path="/product/:id"
+          element={<ProductDetailsLayout addToCart={addToCart} cart={cart} />}
+        />
+        <Route path="/about" element={<About />} />
+        <Route path='/cart/' element={<Cart cart={cart} />} />
       </Routes>
 
       <footer>
-        <img src={logoOutline} alt='Logo of a tea kettle with matcha tea on the side.' />
-        <h5>Reverie Tea</h5> 
-        <p>Copyright &copy; <a href='https://github.com/Royuin'> Royuin </a></p>
-        <a href="https://www.flaticon.com/free-icons/smart-cart" title="smart cart icons">Smart cart icons created by Muhammad_Usman - Flaticon</a>
+        <img
+          src={logoOutline}
+          alt="Logo of a tea kettle with matcha tea on the side."
+        />
+        <h5>Reverie Tea</h5>
+        <p>
+          Copyright &copy; <a href="https://github.com/Royuin"> Royuin </a>
+        </p>
+        <a
+          href="https://www.flaticon.com/free-icons/smart-cart"
+          title="smart cart icons"
+        >
+          Smart cart icons created by Muhammad_Usman - Flaticon
+        </a>
         <br />
-        <a href="https://www.flaticon.com/free-icons/matcha" title="matcha icons">Matcha icons created by amonrat rungreangfangsai - Flaticon</a>
+        <a
+          href="https://www.flaticon.com/free-icons/matcha"
+          title="matcha icons"
+        >
+          Matcha icons created by amonrat rungreangfangsai - Flaticon
+        </a>
       </footer>
     </div>
   );
