@@ -10,13 +10,18 @@ import xianzhi from '../assets/xianzhi-green.jpg';
 import reverieGreenBlend from '../assets/reverie-green-blend.jpg';
 import matchaCooking from '../assets/matcha-cooking-powder.jpg';
 import matchaCeremonial from '../assets/matcha-ceremonial-powder.jpg';
+import { useState } from 'react';
 
 
-function ProductDetailsLayout( addToCart) {
+function ProductDetailsLayout({addToCart }) {
   const { id } = useParams() 
   let {state} = useLocation();
-  console.log(addToCart.addToCart);
   const product = state.value;
+  const [quantity, setQuantity] = useState(1);
+
+  function handleQuantity(e) {
+  setQuantity(e.target.value);
+  }
 
   return (
     <>
@@ -36,10 +41,17 @@ function ProductDetailsLayout( addToCart) {
           <br />
           <p>Price per 3 oz: ${product.price}</p>
           <label htmlFor='quantity'>
-            <input type='number' name='quantity' id='quantity' />
+            <input type='number' name='quantity' id='quantity' value={quantity} 
+              onChange={(e) => {
+            handleQuantity(e);
+            }}/>
           </label>
           <p><em>Approximately 40 servings</em></p>
-          <button  >Add To Cart - ${product.price}</button>
+          <button onClick={() => {
+            addToCart(product, quantity);
+          }}>
+            Add To Cart - ${product.price}
+          </button>
         </div>
       </main>
     </>
