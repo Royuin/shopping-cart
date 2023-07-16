@@ -60,6 +60,14 @@ body {
   color: var(--lightest-green);
 }
 
+.cart-link {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
 li {
   list-style: none;
 }
