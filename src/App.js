@@ -136,6 +136,34 @@ function App() {
     setCart(previous => [...previous, product]);
   }
 
+  function renderCartLink() {
+    if (cart.length > 0) {
+      return (
+        <li className="cart-link">
+          <Link to='/cart'>
+            <p>{cart.length}</p>
+            <img
+              className="shopping-icon"
+              src={cartIcon}
+              alt="icon of a green shopping cart"
+            />
+          </Link>
+        </li>
+      );
+    }
+    return (
+      <li className="cart-link">
+        <Link to='/cart'>
+          <img
+            className="shopping-icon"
+            src={cartIcon}
+            alt="icon of a green shopping cart"
+          />
+        </Link>
+      </li>
+    );
+  }
+
   return (
     <div className="App">
       <nav className="site-nav" aria-label="site">
@@ -157,7 +185,7 @@ function App() {
           <li>
             <Link to="/about">About Us</Link>
           </li>
-          <li><img className='shopping-icon' src={cartIcon} alt='icon of shopping bag' /></li>
+          {renderCartLink()}
         </ul>
       </nav>
 
