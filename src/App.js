@@ -139,8 +139,8 @@ function App() {
   function renderCartLink() {
     if (cart.length > 0) {
       return (
-        <li className="cart-link">
-          <Link to='/cart'>
+        <li>
+          <Link to='/cart' className='cart-link'>
             <p>{cart.length}</p>
             <img
               className="shopping-icon"
