@@ -6,6 +6,7 @@ import GreenTea from '../components/GreenTea';
 import React from 'react';
 import BlackTea from '../components/Black';
 import HerbalTea from '../components/Herbal';
+import {MemoryRouter} from 'react-router-dom'; 
 
 describe('renderProducts functions for different products pages', () => {
 
@@ -36,9 +37,13 @@ describe('renderProducts functions for different products pages', () => {
     }
   ]
 
-  it('Products renderProducts renders all products in array', async () => {
+  it('Products renderProducts renders all products in array', () => {
 
-    render(<Products productsArray={productsMock} />)
+    render(
+      <MemoryRouter >
+      <Products productsArray={productsMock} />
+      </MemoryRouter >
+    )
 
     const listItems = screen.getAllByRole('listitem');
     expect(listItems.length).toBe(4);
