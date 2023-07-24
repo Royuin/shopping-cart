@@ -19,17 +19,17 @@ function Home() {
       <main>
         <section>
           <h2 className='top-sellers-heading'> Our Top Sellers </h2>
-          <div className='top-sellers'>
-            <div className='seller1'>
+          <ul className='top-sellers'>
+            <li className='seller1'>
               <img className='seller-img' src={chamomileLeaves} alt='Matcha powder in spoon sitting on top of green leaves' />
-            </div>
-            <div className='seller2'>
+            </li>
+            <li className='seller2'>
               <img className='seller-img' src={jasmineLeaves} alt='Dried jasmine tea leaves' />
-            </div>
-            <div className='seller3'>
+            </li>
+            <li className='seller3'>
               <img className='seller-img' src={blackLeaves} alt='Dried black tea leaves' />
-            </div>
-          </div>
+            </li>
+          </ul>
         </section>
         <section className='why-us-section'>
           <h2 className='why-us-heading'> Why Us? </h2>
