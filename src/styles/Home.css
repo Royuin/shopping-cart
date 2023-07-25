@@ -37,7 +37,7 @@
   font-size: 1rem;
   text-decoration: none;
   border-radius: 5px;
-  }
+}
 
 .home-shop-now:hover {
   background-color: var(--mid-green);
@@ -46,7 +46,7 @@
 
 .top-sellers-heading, .why-us-heading {
   text-align: center;
-    font-size: clamp(1.5rem, 3vw, 50px);
+  font-size: clamp(1.5rem, 3vw, 50px);
   color: var(--darkest-green);
   border-bottom: 10px double var(--mid-wood);
 }
@@ -60,15 +60,22 @@
 }
 
 .seller-img {
+  height: 100%;
   width: 100%;
   border: 5px groove var(--mid-wood);
 }
 
+.top-sellers > li { 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .why-us-section {
   background-image: url(../assets/green-leaf-plant.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    padding: 10px 0 35px 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 10px 0 35px 0;
 }
 
 .why-us-wrapper {
