@@ -21,13 +21,28 @@ function Home() {
           <h2 className='top-sellers-heading'> Our Top Sellers </h2>
           <ul className='top-sellers'>
             <li className='seller1'>
-              <img className='seller-img' src={chamomileLeaves} alt='Matcha powder in spoon sitting on top of green leaves' />
+              <Link to={/product/ + 'Chamomile'} className='product-img-wrapper'>
+                <img className='seller-img' src={chamomileLeaves} alt='Matcha powder in spoon sitting on top of green leaves' />
+                <div className='product-img-overlay'>
+                  <p className='view-text'>Chamomile</p>
+                </div>
+              </Link>
             </li>
             <li className='seller2'>
-              <img className='seller-img' src={jasmineLeaves} alt='Dried jasmine tea leaves' />
+              <Link to={/product/ + 'Green Jasmine'} className='product-img-wrapper'>
+                <img className='seller-img' src={jasmineLeaves} alt='Dried jasmine tea leaves' />
+                <div className='product-img-overlay'>
+                  <p className='view-text'>Green Jasmine</p>
+                </div>
+              </Link>
             </li>
-            <li className='seller3'>
-              <img className='seller-img' src={blackLeaves} alt='Dried black tea leaves' />
+            <li className='seller3 product-img-wrapper' >
+              <Link to={/product/ + 'Russian Caravan Black'} className='product-img-wrapper'>
+                <img className='seller-img' src={blackLeaves} alt='Dried black tea leaves' />
+                <div className='product-img-overlay'>
+                  <p className='view-text'>Russian Caraven Black</p>
+                </div>
+              </Link>
             </li>
           </ul>
         </section>
