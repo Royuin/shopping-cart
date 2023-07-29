@@ -141,25 +141,38 @@ function App() {
 
   function addToCart(product, quantity) {
     const quantityNum = Number(quantity);
-    console.log(quantityNum);
-    product.quantity = quantityNum;
-      if (productInCart(product)) {
-      console.log('true');
+
+    if (productInCart(product)) {
       const updatedCart = cart.map(currentProduct => {
-       if( currentProduct.name === product.name) {
-        currentProduct.quantity =  currentProduct.quantity + quantityNum;
-        
-        return currentProduct;
-       } else {
-        return currentProduct;
-       }
+        if( currentProduct.name === product.name) {
+          currentProduct.quantity =  currentProduct.quantity + quantityNum;
+          return currentProduct;
+        } else {
+          return currentProduct;
+        }
       })
-      console.log(updatedCart);
-      setCart(updatedCart);
-      
+      return setCart(updatedCart);
     } else {
-    setCart(previous => [...previous, product]);
+      product.quantity = quantityNum;
+      setCart(previous => [...previous, product]);
     }
+
+
+    // if (!cart.includes(product)) {
+    //   console.log(product);
+    //   product.quantity = quantityNum;
+    //   setCart(previous => [...previous, product]);
+    // } else {
+    //   const cartCopy = cart;
+    //   for (let i = 0; i < cartCopy.length; i+=1) {
+    //     if (cartCopy[i].id === product.id) {
+    //       const result = cartCopy[i].quantity += quantityNum;
+    //       cartCopy[i].quantity = result;
+    //     }
+    //   }
+    //   setCart(cartCopy);
+    // }
+
   }
 
   function renderCartLink() {
@@ -238,7 +251,7 @@ function App() {
         </Route>
         <Route
           path="/product/:id"
-          element={<ProductDetailsLayout addToCart={addToCart} cart={cart} />}
+          element={<ProductDetailsLayout addToCart={addToCart} productsArray={productsArray}  />}
         />
         <Route path="/about" element={<About />} />
         <Route path='/cart/' element={<Cart cart={cart} />} />
