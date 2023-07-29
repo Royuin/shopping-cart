@@ -10,7 +10,8 @@ import reverieGreenBlend from '../assets/reverie-green-blend.jpg';
 import matchaCooking from '../assets/matcha-cooking-powder.jpg';
 import matchaCeremonial from '../assets/matcha-ceremonial-powder.jpg';
 
-function Cart({ cart} ) {
+function Cart({cart, handleQuantityChange} ) {
+
   function renderProducts() {
     const cartItems = cart.map((product) => {
       return (
@@ -19,8 +20,8 @@ function Cart({ cart} ) {
             <img className='cart-img' src={product.src} alt={product.alt} />
             <h3>{product.name}</h3>
           </div>
-          <p>Price: ${product.price}</p>
-          <p>Quantity: {product.quantity}</p>
+          <p>${product.price}</p>
+          <p>{product.quantity}</p>
         </li>
       );
     });
@@ -30,6 +31,11 @@ function Cart({ cart} ) {
 
   return (
     <>
+      <header className='cart-header'>
+      <p><strong>Item</strong></p> 
+      <p><strong>Price</strong></p> 
+      <p><strong>Quantity</strong></p> 
+      </header>
       {renderProducts()}
     </>
   )
