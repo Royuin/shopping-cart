@@ -6,8 +6,8 @@ function Products({productsArray}) {
   function renderProducts() {
     const productItems = productsArray.map((product) => {
       return (
-        <li key={product.id} >
-          <Link to={/product/ + product.name} state={{value: product}} className='product-img-wrapper'>
+        <li key={product.id}>
+          <Link to={/product/ + product.name} className='product-img-wrapper'>
             <img src={product.src} alt={product.alt} />
             <div className='product-img-overlay'>
               <p className='view-text'>View</p>
