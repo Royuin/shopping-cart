@@ -158,6 +158,30 @@ function App() {
     }
   }
 
+  function decrementQuantity(id) {
+    const updatedCart = cart.map(currentProduct => {
+      if (currentProduct.id === id) {
+        currentProduct.quantity = currentProduct.quantity - 1;
+        return currentProduct;
+      } else {
+        return currentProduct;
+      }
+    })
+    return setCart(updatedCart);
+  }
+
+  function incrementQuantity(id) {
+    const updatedCart = cart.map(currentProduct => {
+      if (currentProduct.id === id) {
+        currentProduct.quantity = currentProduct.quantity + 1;
+        return currentProduct;
+      } else {
+        return currentProduct;
+      }
+    })
+    return setCart(updatedCart);
+  }
+
   function handleQuantityChange(event, id) {
     const quantity = event.target.value;
     const updatedCart = cart.map(currentProduct => {
@@ -250,7 +274,7 @@ function App() {
           element={<ProductDetailsLayout addToCart={addToCart} productsArray={productsArray}  />}
         />
         <Route path="/about" element={<About />} />
-        <Route path='/cart/' element={<Cart cart={cart} handleQuantityChange={handleQuantityChange} />} />
+        <Route path='/cart/' element={<Cart cart={cart} handleQuantityChange={handleQuantityChange} decrementQuantity={decrementQuantity} incrementQuantity={incrementQuantity} />} />
       </Routes>
 
       <footer>
