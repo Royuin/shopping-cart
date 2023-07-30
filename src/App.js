@@ -156,23 +156,19 @@ function App() {
       product.quantity = quantityNum;
       setCart(previous => [...previous, product]);
     }
+  }
 
-
-    // if (!cart.includes(product)) {
-    //   console.log(product);
-    //   product.quantity = quantityNum;
-    //   setCart(previous => [...previous, product]);
-    // } else {
-    //   const cartCopy = cart;
-    //   for (let i = 0; i < cartCopy.length; i+=1) {
-    //     if (cartCopy[i].id === product.id) {
-    //       const result = cartCopy[i].quantity += quantityNum;
-    //       cartCopy[i].quantity = result;
-    //     }
-    //   }
-    //   setCart(cartCopy);
-    // }
-
+  function handleQuantityChange(event, id) {
+    const quantity = event.target.value;
+    const updatedCart = cart.map(currentProduct => {
+      if (id === currentProduct.id) {
+        currentProduct.quantity = quantity;
+        return currentProduct;
+      } else {
+        return currentProduct
+      }
+    })
+    return setCart(updatedCart);
   }
 
   function renderCartLink() {
@@ -254,7 +250,7 @@ function App() {
           element={<ProductDetailsLayout addToCart={addToCart} productsArray={productsArray}  />}
         />
         <Route path="/about" element={<About />} />
-        <Route path='/cart/' element={<Cart cart={cart} />} />
+        <Route path='/cart/' element={<Cart cart={cart} handleQuantityChange={handleQuantityChange} />} />
       </Routes>
 
       <footer>
