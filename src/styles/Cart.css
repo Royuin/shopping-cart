@@ -32,3 +32,22 @@
   text-align: center;
     grid-auto-flow: column;
 }
+
+.product-quantity-wrap {
+display: flex;
+justify-content: center;
+}
+
+.quantity-input {
+  width: 10%;
+  display: flex;
+  justify-self: center;
+  font-size: clamp(1rem, 1.5vw, 25px);
+  text-align: center;
+}
+
+.decrement-button, .increment-button {
+  width: 8%;
+  font-size: clamp(0.8rem, 1.2vw, 20px);
+  cursor: pointer;
+}
