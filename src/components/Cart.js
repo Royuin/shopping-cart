@@ -10,7 +10,7 @@ import reverieGreenBlend from '../assets/reverie-green-blend.jpg';
 import matchaCooking from '../assets/matcha-cooking-powder.jpg';
 import matchaCeremonial from '../assets/matcha-ceremonial-powder.jpg';
 
-function Cart({cart, handleQuantityChange}) {
+function Cart({cart, handleQuantityChange, decrementQuantity, incrementQuantity}) {
 
   function renderProducts() {
     const cartItems = cart.map((product) => {
@@ -22,12 +22,12 @@ function Cart({cart, handleQuantityChange}) {
           </div>
           <p>${product.price}</p>
           <div className='product-quantity-wrap'>
-            <button className='decrement-button'  >-</button>
+            <button className='decrement-button' onClick={() => decrementQuantity(product.id)} >-</button>
             <input className='quantity-input' type='tel' value={product.quantity} onChange={(e) => {
               handleQuantityChange(e, product.id) 
             }}
             ></input>
-            <button className='increment-button'>+</button>
+            <button className='increment-button' onClick={() => incrementQuantity(product.id)} >+</button>
           </div>
         </li>
       );
