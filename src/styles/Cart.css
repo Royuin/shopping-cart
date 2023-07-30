@@ -1,3 +1,11 @@
+:root {
+  --lightest-green: #f0fdf4;
+  --darkest-green: #052e16;
+  --mid-green: #22c55e;
+  --mid-wood: #704327;
+  --light-wood: #DEB887;
+}
+
 .cart-list {
   padding: 0 3% 5% 3%;
 }
@@ -30,12 +38,12 @@
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
   text-align: center;
-    grid-auto-flow: column;
+  grid-auto-flow: column;
 }
 
 .product-quantity-wrap {
-display: flex;
-justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .quantity-input {
@@ -50,4 +58,12 @@ justify-content: center;
   width: 8%;
   font-size: clamp(0.8rem, 1.2vw, 20px);
   cursor: pointer;
+  background-color: var(--light-wood);
+  color: var(--darkest-green);
+  border: none;
+}
+
+.decrement-button:hover, .increment-button:hover {
+  background-color: var(--mid-wood);
+  color: var(--lightest-green);
 }
