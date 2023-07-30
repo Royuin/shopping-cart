@@ -1,17 +1,17 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import { MemoryRouter, Routes, Route, Router } from 'react-router-dom';
-import App from '../App';
+import { MemoryRouter, Routes, Route } from 'react-router-dom';
 import ProductDetailsLayout from '../components/ProductDetailsLayout';
-import { createBrowserHistory, createMemoryHistory } from '@remix-run/router';
-
-jest.mock('../App', () => ({
-  __esModule: true,
-  default: jest.fn(),
-  addToCart: jest.fn(),
-}));
+import { createBrowserHistory } from '@remix-run/router';
 
 describe('Adding, editing or removing from cart', () => {
-  it('addToCart function being called on button click for product', async () => {
+
+  it('addToCart function being called on button click for product', () => {
+
+    jest.mock('../App', () => ({
+      __esModule: true,
+      default: jest.fn(),
+      addToCart: jest.fn(),
+    }));
 
     const addToCart= require('../App').addToCart;
     const history = createBrowserHistory();
@@ -35,18 +35,16 @@ describe('Adding, editing or removing from cart', () => {
 
     render(
       <MemoryRouter initialEntries={['/product/product name']} history={history}>
-
         <Routes>
           <Route
             path='product/:id'
             element={<ProductDetailsLayout addToCart={addToCart} productsArray={productsArrayMock} />} />
         </Routes>
-        <App />
       </MemoryRouter>,
     );
 
     fireEvent.click(screen.getByText(`Add To Cart - $${productTest.price}`));
 
     expect(addToCart).toHaveBeenCalled();
-  });
-});
+  })
+})
