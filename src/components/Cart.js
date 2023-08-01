@@ -22,7 +22,7 @@ function Cart({cart, handleQuantityChange, decrementQuantity, incrementQuantity}
           </div>
           <p>${product.price}</p>
           <div className='product-quantity-wrap'>
-            <button className='decrement-button' onClick={() => decrementQuantity(product.id)} >-</button>
+            <button className='decrement-button' onClick={() => decrementQuantity(product.id, product.quantity)} >-</button>
             <input className='quantity-input' type='tel' value={product.quantity} onChange={(e) => {
               handleQuantityChange(e, product.id) 
             }}
@@ -36,16 +36,22 @@ function Cart({cart, handleQuantityChange, decrementQuantity, incrementQuantity}
     return <ul className='cart-list'>{cartItems}</ul>;
   }
 
-  return (
-    <>
-      <header className='cart-header'>
-        <p><strong>Item</strong></p> 
-        <p><strong>Price</strong></p> 
-        <p><strong>Quantity</strong></p> 
-      </header>
-      {renderProducts()}
-    </>
-  )
+  if (cart.length < 1) {
+    return ( <h2 className='empty-cart-heading'>Your cart is empty!</h2> )
+  }
+
+  else {
+    return (
+      <>
+        <header className='cart-header'>
+          <p><strong>Item</strong></p> 
+          <p><strong>Price</strong></p> 
+          <p><strong>Quantity</strong></p> 
+        </header>
+        {renderProducts()}
+      </>
+    )
+  }
 }
 
 export default Cart;
