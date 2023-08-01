@@ -18,6 +18,12 @@ body {
   line-height: 1.5;
 }
 
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .site-nav {
   display: flex;
   justify-content: space-between;
@@ -78,6 +84,7 @@ footer {
   color: var(--mid-green);
   display: grid;
   place-items: center;
+  margin-top: auto;
 }
 
 footer > a, p > a {
