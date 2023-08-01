@@ -10,7 +10,7 @@ import reverieGreenBlend from '../assets/reverie-green-blend.jpg';
 import matchaCooking from '../assets/matcha-cooking-powder.jpg';
 import matchaCeremonial from '../assets/matcha-ceremonial-powder.jpg';
 
-function Cart({cart, handleQuantityChange, decrementQuantity, incrementQuantity}) {
+function Cart({cart, handleQuantityChange, decrementQuantity, incrementQuantity, removeFromCart}) {
 
   function renderProducts() {
     const cartItems = cart.map((product) => {
@@ -29,6 +29,10 @@ function Cart({cart, handleQuantityChange, decrementQuantity, incrementQuantity}
             ></input>
             <button className='increment-button' onClick={() => incrementQuantity(product.id)} >+</button>
           </div>
+            <div className='remove-and-total'>
+            <p>${Math.round((product.quantity * product.price) * 100) / 100}</p>
+            <button className='remove-from-cart' onClick={() => removeFromCart(product)}>X</button>
+            </div>
         </li>
       );
     });
@@ -47,6 +51,7 @@ function Cart({cart, handleQuantityChange, decrementQuantity, incrementQuantity}
           <p><strong>Item</strong></p> 
           <p><strong>Price</strong></p> 
           <p><strong>Quantity</strong></p> 
+          <p><strong>Total</strong></p>
         </header>
         {renderProducts()}
       </>
