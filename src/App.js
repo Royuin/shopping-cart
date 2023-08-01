@@ -286,7 +286,7 @@ function App() {
           element={<ProductDetailsLayout addToCart={addToCart} productsArray={productsArray}  />}
         />
         <Route path="/about" element={<About />} />
-        <Route path='/cart/' element={<Cart cart={cart} handleQuantityChange={handleQuantityChange} decrementQuantity={decrementQuantity} incrementQuantity={incrementQuantity} />} />
+        <Route path='/cart/' element={<Cart cart={cart} handleQuantityChange={handleQuantityChange} decrementQuantity={decrementQuantity} incrementQuantity={incrementQuantity} removeFromCart={removeFromCart} />} />
       </Routes>
 
       <footer>
