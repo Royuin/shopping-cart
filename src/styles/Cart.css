@@ -13,7 +13,7 @@
 .cart-product {
   display: grid;
   grid-auto-flow: column;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   align-items: center;
   text-align: center;
   border-top: 5px double #704327;
@@ -35,7 +35,7 @@
 .cart-header {
   padding: 0 3% 2% 3%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   align-items: center;
   text-align: center;
   grid-auto-flow: column;
@@ -77,3 +77,29 @@
   border-bottom: 5px double var(--mid-wood);
 }
 
+.remove-and-total {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
+}
+
+.remove-from-cart {
+  display: grid;
+  place-content: center;
+  border-radius: 50%;
+  height: 15px;
+  width: 15px;
+  padding: 4%;
+  background-color: var(--light-wood);
+  color: var(--darkest-green);
+  border: none;
+  /* font-weight: bold; */
+}
+
+.remove-from-cart:hover {
+  background-color: var(--mid-wood);
+    color: var(--lightest-green);
+  font-weight: bold;
+  cursor: pointer;
+}
