@@ -12,6 +12,10 @@ import matchaCeremonial from '../assets/matcha-ceremonial-powder.jpg';
 
 function Cart({cart, handleQuantityChange, decrementQuantity, incrementQuantity, removeFromCart}) {
 
+  function cartSubtotal() {
+    const subtotal = cart.reduce
+  }
+
   function renderProducts() {
     const cartItems = cart.map((product) => {
       return (
@@ -29,10 +33,10 @@ function Cart({cart, handleQuantityChange, decrementQuantity, incrementQuantity,
             ></input>
             <button className='increment-button' onClick={() => incrementQuantity(product.id)} >+</button>
           </div>
-            <div className='remove-and-total'>
+          <div className='remove-and-total'>
             <p>${Math.round((product.quantity * product.price) * 100) / 100}</p>
-            <button className='remove-from-cart' onClick={() => removeFromCart(product)}>X</button>
-            </div>
+            <button className='remove-from-cart' onClick={() => removeFromCart(product.id)}>X</button>
+          </div>
         </li>
       );
     });
@@ -46,7 +50,7 @@ function Cart({cart, handleQuantityChange, decrementQuantity, incrementQuantity,
 
   else {
     return (
-      <>
+      <main>
         <header className='cart-header'>
           <p><strong>Item</strong></p> 
           <p><strong>Price</strong></p> 
@@ -54,7 +58,10 @@ function Cart({cart, handleQuantityChange, decrementQuantity, incrementQuantity,
           <p><strong>Total</strong></p>
         </header>
         {renderProducts()}
-      </>
+        <section>
+          <p>Subtotal: {}</p>
+        </section>
+      </main>
     )
   }
 }
