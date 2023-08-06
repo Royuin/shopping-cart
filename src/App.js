@@ -149,6 +149,10 @@ function App() {
     }
   };
 
+  function clearCart() {
+    setCart([]);
+  }
+
   function addToCart(product, quantity) {
     const quantityNum = Number(quantity);
 
@@ -286,7 +290,7 @@ function App() {
           element={<ProductDetailsLayout addToCart={addToCart} productsArray={productsArray}  />}
         />
         <Route path="/about" element={<About />} />
-        <Route path='/cart/' element={<Cart cart={cart} handleQuantityChange={handleQuantityChange} decrementQuantity={decrementQuantity} incrementQuantity={incrementQuantity} removeFromCart={removeFromCart} />} />
+        <Route path='/cart/' element={<Cart cart={cart} handleQuantityChange={handleQuantityChange} decrementQuantity={decrementQuantity} incrementQuantity={incrementQuantity} removeFromCart={removeFromCart} clearCart={clearCart} />} />
       </Routes>
 
       <footer>
