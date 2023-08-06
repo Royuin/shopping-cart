@@ -30,7 +30,7 @@ function Cart({cart, handleQuantityChange, decrementQuantity, incrementQuantity,
 
   function displayCheckoutMessage() {
     if (checkoutMessage === true) {
-      return <p>Checkout Successful!</p>
+      return <p className='checkout-message'>Checkout Successful!</p>
     }
   }
 

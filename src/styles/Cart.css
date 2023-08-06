@@ -94,7 +94,6 @@
   background-color: var(--light-wood);
   color: var(--darkest-green);
   border: none;
-  /* font-weight: bold; */
 }
 
 .remove-from-cart:hover {
@@ -102,4 +101,21 @@
     color: var(--lightest-green);
   font-weight: bold;
   cursor: pointer;
+}
+
+.checkout-message {
+  position: absolute;
+  display: grid;
+  place-content: center;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 30%;
+  height: 25%;
+  background-color: var(--mid-wood);
+  color: var(--lightest-green);
+  border: 5px double var(--mid-green);
+  font-size: 1.5rem;
 }
