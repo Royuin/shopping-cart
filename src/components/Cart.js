@@ -13,7 +13,10 @@ import matchaCeremonial from '../assets/matcha-ceremonial-powder.jpg';
 function Cart({cart, handleQuantityChange, decrementQuantity, incrementQuantity, removeFromCart}) {
 
   function cartSubtotal() {
-    const subtotal = cart.reduce
+    const subtotal = cart.reduce((total, currentProduct) => {
+      return total + currentProduct.quantity * currentProduct.price;
+    },0)
+    return (<p>${subtotal.toFixed(2)}</p>)
   }
 
   function renderProducts() {
@@ -58,8 +61,12 @@ function Cart({cart, handleQuantityChange, decrementQuantity, incrementQuantity,
           <p><strong>Total</strong></p>
         </header>
         {renderProducts()}
-        <section>
-          <p>Subtotal: {}</p>
+        <section className='subtotal-section'>
+          <div className='subtotal-wrapper'>
+          <h4>Subtotal:</h4>
+          {cartSubtotal()}
+          </div>
+          <p><em>Shipping and taxes computed at checkout</em></p>
         </section>
       </main>
     )
