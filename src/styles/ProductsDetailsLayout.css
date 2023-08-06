@@ -31,3 +31,19 @@
 .details-right > div > h4 {
   margin-bottom: 10px;
 }
+
+.quantity-wrapper > #quantity {
+  width: 10%;
+  font-size: 1.2rem;
+  border: 1px solid var(--darkest-green);
+}
+
+.quantity-wrapper {
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.quantity-wrapper > .decrement-button + .increment-button {
+  border: 1px solid var(--darkest-green);
+}
