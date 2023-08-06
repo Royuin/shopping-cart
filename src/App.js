@@ -287,7 +287,7 @@ function App() {
         </Route>
         <Route
           path="/product/:id"
-          element={<ProductDetailsLayout addToCart={addToCart} productsArray={productsArray}  />}
+          element={<ProductDetailsLayout addToCart={addToCart} productsArray={productsArray} decrementQuantity={decrementQuantity} incrementQuantity={incrementQuantity} />}
         />
         <Route path="/about" element={<About />} />
         <Route path='/cart/' element={<Cart cart={cart} handleQuantityChange={handleQuantityChange} decrementQuantity={decrementQuantity} incrementQuantity={incrementQuantity} removeFromCart={removeFromCart} clearCart={clearCart} />} />
