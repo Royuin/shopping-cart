@@ -12,7 +12,7 @@ import matchaCooking from '../assets/matcha-cooking-powder.jpg';
 import matchaCeremonial from '../assets/matcha-ceremonial-powder.jpg';
 import { useState } from 'react';
 
-function ProductDetailsLayout({addToCart, productsArray}) {
+function ProductDetailsLayout({addToCart, productsArray, incrementQuantity, decrementQuantity}) {
   const { id } = useParams() 
   const product = productsArray.find(product => product.name === id);
   const [quantity, setQuantity] = useState(1);
@@ -38,11 +38,16 @@ function ProductDetailsLayout({addToCart, productsArray}) {
           </div>
           <br />
           <p>Price per 3 oz: ${product.price}</p>
-          <label htmlFor='quantity'>
-            <input type='number' name='quantity' id='quantity' value={quantity} 
+          <label htmlFor='quantity' className='quantity-label'> 
+          Quantity:
+          <div className='quantity-wrapper'>
+          <button className='decrement-button' onClick={() => decrementQuantity(product.id, quantity)}>-</button>
+            <input type='tel' name='quantity' id='quantity' value={quantity} 
               onChange={(e) => {
                 handleQuantity(e);
               }}/>
+              <button className='increment-button' onClick={() => incrementQuantity(product.id, quantity)}>+</button>
+              </div>
           </label>
           <p><em>Approximately 40 servings</em></p>
           <button onClick={() => {
