@@ -9,14 +9,29 @@ import xianzhi from '../assets/xianzhi-green.jpg';
 import reverieGreenBlend from '../assets/reverie-green-blend.jpg';
 import matchaCooking from '../assets/matcha-cooking-powder.jpg';
 import matchaCeremonial from '../assets/matcha-ceremonial-powder.jpg';
+import { useEffect, useState } from 'react';
 
-function Cart({cart, handleQuantityChange, decrementQuantity, incrementQuantity, removeFromCart}) {
+function Cart({cart, handleQuantityChange, decrementQuantity, incrementQuantity, removeFromCart, clearCart}) {
+
+  const [checkoutMessage, setCheckoutMessage] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setCheckoutMessage(false)
+    }, 3000)
+  },[checkoutMessage])
 
   function cartSubtotal() {
     const subtotal = cart.reduce((total, currentProduct) => {
       return total + currentProduct.quantity * currentProduct.price;
     },0)
     return (<p>${subtotal.toFixed(2)}</p>)
+  }
+
+  function displayCheckoutMessage() {
+    if (checkoutMessage === true) {
+      return <p>Checkout Successful!</p>
+    }
   }
 
   function renderProducts() {
@@ -48,7 +63,12 @@ function Cart({cart, handleQuantityChange, decrementQuantity, incrementQuantity,
   }
 
   if (cart.length < 1) {
-    return ( <h2 className='empty-cart-heading'>Your cart is empty!</h2> )
+    return (
+      <>
+      <h2 className='empty-cart-heading'>Your cart is empty!</h2>
+      {displayCheckoutMessage()}
+      </>
+    )
   }
 
   else {
@@ -67,6 +87,7 @@ function Cart({cart, handleQuantityChange, decrementQuantity, incrementQuantity,
           {cartSubtotal()}
           </div>
           <p><em>Shipping and taxes computed at checkout</em></p>
+          <button className='checkout-button' onClick={() => [clearCart(), setCheckoutMessage(true)]}>Checkout</button>
         </section>
       </main>
     )
