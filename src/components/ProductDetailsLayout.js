@@ -10,24 +10,48 @@ import xianzhi from '../assets/xianzhi-green.jpg';
 import reverieGreenBlend from '../assets/reverie-green-blend.jpg';
 import matchaCooking from '../assets/matcha-cooking-powder.jpg';
 import matchaCeremonial from '../assets/matcha-ceremonial-powder.jpg';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function ProductDetailsLayout({addToCart, productsArray, incrementQuantity, }) {
   const { id } = useParams() 
   const product = productsArray.find(product => product.name === id);
   const [quantity, setQuantity] = useState(1);
+  const [quantityError, setQuantityError] = useState(false);
 
-  function handleQuantity(e) {
-    setQuantity(e.target.value);
+
+
+  function handleQuantity(value) {
+    if (value < 1 || value > 100) {
+      setQuantityError(true);
+    }
+    setQuantity(false)
+    setQuantity(Number(value));
   }
 
   function decrementQuantity() {
+    if (quantity === 1) {
+      return
+    }
     setQuantity(quantity - 1);
   }
 
   function incrementQuantity() {
-    setQuantity(quantity + 1)
+    if (quantity === 100) {
+      return;
+    }
+    setQuantity(Number(quantity) + 1)
   }
+
+  function displayQuantityError() {
+    if (quantityError === true) {
+    return ( <p className='quantity-error'><em>Quantity must be greater than 0 and no greater than 100.</em></p>)
+    }
+  }
+
+  useEffect(() => {
+    if (quantity >= 1 && quantity <= 100)
+    setQuantityError(false);
+  },[quantity])
 
   return (
     <>
@@ -50,15 +74,16 @@ function ProductDetailsLayout({addToCart, productsArray, incrementQuantity, }) {
           Quantity:
           <div className='quantity-wrapper'>
           <button className='decrement-button' onClick={() => decrementQuantity(product.id, quantity)}>-</button>
-            <input type='tel' name='quantity' id='quantity' value={quantity} 
+            <input type='tel' name='quantity' id='quantity' value={quantity} size={1}
               onChange={(e) => {
-                handleQuantity(e);
+                handleQuantity(e.target.value);
               }}/>
               <button className='increment-button' onClick={() => incrementQuantity(product.id)}>+</button>
               </div>
           </label>
+              {displayQuantityError()}
           <p><em>Approximately 40 servings</em></p>
-          <button onClick={() => {
+          <button disabled={quantityError} onClick={() => {
             addToCart(product, quantity);
           }}>
             Add To Cart - ${product.price}
