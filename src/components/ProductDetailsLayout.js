@@ -18,8 +18,6 @@ function ProductDetailsLayout({addToCart, productsArray, incrementQuantity, }) {
   const [quantity, setQuantity] = useState(1);
   const [quantityError, setQuantityError] = useState(false);
 
-
-
   function handleQuantity(value) {
     if (value < 1 || value > 100) {
       setQuantityError(true);
@@ -83,7 +81,7 @@ function ProductDetailsLayout({addToCart, productsArray, incrementQuantity, }) {
           </label>
               {displayQuantityError()}
           <p><em>Approximately 40 servings</em></p>
-          <button disabled={quantityError} onClick={() => {
+          <button  disabled={quantityError} className='add-to-cart-button' onClick={() => {
             addToCart(product, quantity);
           }}>
             Add To Cart - ${product.price}

@@ -43,3 +43,23 @@
   display: flex;
   align-items: center;
 }
+
+.quantity-error {
+  color: red;
+  font-size: 0.9rem;
+}
+
+.add-to-cart-button {
+ padding: 15px; 
+ background-color: var(--mid-wood);
+ color: var(--lightest-green);
+ border: 4px double var(--darkest-green);
+ border-radius: 5px;
+ font-weight: bold;
+}
+
+.add-to-cart-button:hover {
+  background-color: var(--mid-green);
+  color: var(--darkest-green);
+  cursor: pointer;
+}
