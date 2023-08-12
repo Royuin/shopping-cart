@@ -12,7 +12,13 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: 'montserrat';
+  src: './src/assets/Montserrat-VariableFont_wght.ttf';
+}
+
 body {
+  font-family: 'montserrat', sans-serif;
   background-color: var(--lightest-green);
   color: var(--darkest-green);
   line-height: 1.5;
@@ -87,15 +93,17 @@ footer {
   margin-top: auto;
 }
 
-footer > a, p > a {
+footer > a,
+p > a {
   color: var(--mid-green);
 }
 
-footer > a:hover, p > a:hover {
+footer > a:hover,
+p > a:hover {
   color: var(--lightest-green);
 }
 
 footer > img {
   width: 55px;
-    height: auto;
+  height: auto;
 }
