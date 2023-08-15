@@ -2,6 +2,14 @@
 
     A mock e-commerce react app that allows users to browse products add them to a cart that stores them. Users are also able to select the quantity of the product and change or remove on the cart page as well.
 
+## Technologies Used
+
+    - React
+    - Javascript
+    - HTML/CSS
+    - React Router
+    - React Testing Library/Jest
+
 ## To Do
 
     - Make tests for renderProducts pass with components using useOutletContext instead of props
