@@ -10,6 +10,10 @@ A mock e-commerce react app that allows users to browse products add them to a c
 - React Router
 - React Testing Library/Jest
 
+## What Was Learned
+
+This project was great at solidifying my knowledge of react while also introducing new features like using react router to make a SPA (single page application). Using react testing library to test react components was something else that had to be tackled, which surprisingly was the most difficult part of this project. There was other small things that were learned such as css transitions for the project cards to create a drop down overlay on a card hovered.
+
 ## To Do
 
 - Make tests for renderProducts pass with components using useOutletContext instead of props
