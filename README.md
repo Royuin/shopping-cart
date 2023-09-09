@@ -21,3 +21,4 @@ This project was great at solidifying my knowledge of react while also introduci
 - Test w3 validator if main tag can be used on each page with different routes
 - Make responsive
 - Refactor to use Typescript
+- Migrate project to Vite from Create React App
