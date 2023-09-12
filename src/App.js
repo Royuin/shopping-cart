@@ -255,9 +255,23 @@ function App() {
           <li>
             <Link to='/'>Home</Link>
           </li>
-          <li>
+          <>
             <Link to='/products'>Products</Link>
-          </li>
+            <ul className='products-dropdown'>
+              <li>
+                <Link to='/products/green-tea'>Green Tea</Link>
+              </li>
+              <li>
+                <Link to='/products/matcha'>Matcha</Link>
+              </li>
+              <li>
+                <Link to='/products/black-tea'>Black Tea</Link>
+              </li>
+              <li>
+                <Link to='/products/herbal-tea'>Herbal Tea</Link>
+              </li>
+            </ul>
+          </>
           <li>
             <Link to='/about'>About Us</Link>
           </li>
