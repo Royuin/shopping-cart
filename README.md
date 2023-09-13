@@ -22,3 +22,4 @@ This project was great at solidifying my knowledge of react while also introduci
 - Make responsive
 - Refactor to use Typescript
 - Migrate project to Vite from Create React App
+- Add dropdown menu for different types of products
