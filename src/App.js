@@ -255,9 +255,12 @@ function App() {
           <li>
             <Link to='/'>Home</Link>
           </li>
-          <>
-            <Link to='/products'>Products</Link>
+          <li className='products-dropdown-wrapper'>
+            <button className='nav-products-button'>Products</button>
             <ul className='products-dropdown'>
+              <li>
+                <Link to='/products'>All Products</Link>
+              </li>
               <li>
                 <Link to='/products/green-tea'>Green Tea</Link>
               </li>
@@ -271,14 +274,13 @@ function App() {
                 <Link to='/products/herbal-tea'>Herbal Tea</Link>
               </li>
             </ul>
-          </>
+          </li>
           <li>
             <Link to='/about'>About Us</Link>
           </li>
           {renderCartLink()}
         </ul>
       </nav>
-
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/products' element={<ProductsLayout />}>
@@ -329,7 +331,6 @@ function App() {
           }
         />
       </Routes>
-
       <footer>
         <img
           src={logoOutline}
