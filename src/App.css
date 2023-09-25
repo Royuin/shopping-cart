@@ -38,8 +38,25 @@ body {
   color: var(--lightest-green);
   padding: 2%;
   margin-bottom: 2rem;
-  background-color: rgba(20, 20, 20, 90%);
+  background-color: rgba(20, 20, 20, 100%);
   font-size: 1.3rem;
+}
+
+.products-dropdown-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.products-dropdown {
+  position: absolute;
+  background-color: rgba(20, 20, 20, 100%);
+  top: 100%;
+  padding: 1.5rem 3rem;
+  white-space: nowrap;
+  border-radius: 5px;
 }
 
 .header-logo {
