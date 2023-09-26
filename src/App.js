@@ -28,7 +28,7 @@ import BlackTea from './components/Black';
 function App() {
   const [cart, setCart] = useState([]);
 
-  const [productsArray, setProducts] = useState([
+  const [productsArray, setProductsArray] = useState([
     {
       name: 'Green Jasmine',
       src: jasmine,
@@ -130,6 +130,12 @@ function App() {
       id: uniqid(),
     },
   ]);
+
+  function toggleProductsDropdown() {
+    const dropdownMenu = document.querySelector('.products-dropdown');
+
+    dropdownMenu.classList.toggle('visible');
+  }
 
   function productInCart(product) {
     for (let i = 0; i < cart.length; i += 1) {
@@ -256,7 +262,12 @@ function App() {
             <Link to='/'>Home</Link>
           </li>
           <li className='products-dropdown-wrapper'>
-            <button className='nav-products-button'>Products</button>
+            <button
+              className='nav-products-button'
+              onClick={toggleProductsDropdown()}
+            >
+              Products
+            </button>
             <ul className='products-dropdown'>
               <li>
                 <Link to='/products'>All Products</Link>
