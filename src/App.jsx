@@ -131,11 +131,11 @@ function App() {
     },
   ]);
 
-  function toggleProductsDropdown() {
-    const dropdownMenu = document.querySelector('.products-dropdown');
+  // function toggleProductsDropdown() {
+  //   const dropdownMenu = document.querySelector('.products-dropdown');
 
-    dropdownMenu.classList.toggle('visible');
-  }
+  //   dropdownMenu.classList.toggle('visible');
+  // }
 
   function productInCart(product) {
     for (let i = 0; i < cart.length; i += 1) {
@@ -264,7 +264,7 @@ function App() {
           <li className='products-dropdown-wrapper'>
             <button
               className='nav-products-button'
-              onClick={toggleProductsDropdown()}
+              // onClick={toggleProductsDropdown()}
             >
               Products
             </button>
