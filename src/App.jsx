@@ -135,7 +135,10 @@ function App() {
     if (dropdown === 'hidden') {
       setDropdown('');
     } else {
-      setDropdown('hidden');
+      setDropdown('shrink');
+      setTimeout(function () {
+        setDropdown('hidden');
+      }, 700);
     }
   }
 
