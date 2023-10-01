@@ -1,6 +1,6 @@
 import './App.css';
 import { Routes, Route, Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import uniqid from 'uniqid';
 import logoOutline from './assets/logo-with-outline.png';
 import cartIcon from './assets/green-cart.png';
@@ -27,7 +27,7 @@ import BlackTea from './components/Black';
 
 function App() {
   const [cart, setCart] = useState([]);
-
+  const [dropdown, setDropdown] = useState('hidden');
   const [productsArray, setProductsArray] = useState([
     {
       name: 'Green Jasmine',
@@ -131,11 +131,13 @@ function App() {
     },
   ]);
 
-  // function toggleProductsDropdown() {
-  //   const dropdownMenu = document.querySelector('.products-dropdown');
-
-  //   dropdownMenu.classList.toggle('visible');
-  // }
+  function toggleProductsDropdown() {
+    if (dropdown === 'hidden') {
+      setDropdown('');
+    } else {
+      setDropdown('hidden');
+    }
+  }
 
   function productInCart(product) {
     for (let i = 0; i < cart.length; i += 1) {
@@ -263,12 +265,12 @@ function App() {
           </li>
           <li className='products-dropdown-wrapper'>
             <button
-              className='nav-products-button'
-              // onClick={toggleProductsDropdown()}
+              className='nav-products-button '
+              onClick={toggleProductsDropdown}
             >
               Products
             </button>
-            <ul className='products-dropdown'>
+            <ul className={'products-dropdown ' + dropdown}>
               <li>
                 <Link to='/products'>All Products</Link>
               </li>
