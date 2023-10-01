@@ -5,38 +5,51 @@
   --mid-wood: #704327;
 }
 
-.home-header { 
+.home-header {
   display: flex;
   place-content: center;
   flex-direction: column;
-  margin-bottom: 18vw;
-}
-
-.home-header-img {
-  width: 100vw;
-  height: 80%;
-  position: absolute;
-  z-index: -1;
+  background: url(../assets/green-grass-field.jpeg) no-repeat center;
+  background-size: 100%;
+  padding: 10vw 0;
 }
 
 .home-img-text {
   font-size: 1.5rem;
   color: var(--lightest-green);
-  margin: 5% 0 0 5%;
+  margin: 5% 0 0% 5%;
 }
 
 .support-health {
   color: var(--mid-green);
+  font-size: clamp(0.75rem, 2.1vw, 2rem);
 }
 
-.home-shop-now  {
+h2 {
+  font-size: clamp(0.85rem, 2.3vw, 3.5rem);
+  margin-bottom: 1%;
+}
+
+.home-shop-now {
   background-color: var(--mid-wood);
   border: double 5px var(--darkest-green);
   color: var(--lightest-green);
-  padding: 10px 20px 10px 20px;
+  padding: 20px 40px 20px 40px;
   font-size: 1rem;
   text-decoration: none;
   border-radius: 5px;
+}
+
+@media (max-width: 1750px) {
+  .home-shop-now {
+    padding: 10px 20px 10px 20px;
+  }
+}
+
+@media (max-width: 650px) {
+  .home-shop-now {
+    padding: 3px 6px 3px 6px;
+  }
 }
 
 .home-shop-now:hover {
@@ -44,7 +57,8 @@
   cursor: pointer;
 }
 
-.top-sellers-heading, .why-us-heading {
+.top-sellers-heading,
+.why-us-heading {
   text-align: center;
   font-size: clamp(1.5rem, 3vw, 50px);
   color: var(--darkest-green);
@@ -65,7 +79,7 @@
   border: 5px groove var(--mid-wood);
 }
 
-.top-sellers > li { 
+.top-sellers > li {
   display: flex;
   align-items: center;
   justify-content: center;

@@ -37,7 +37,6 @@ body {
   border-bottom: double 1rem var(--lightest-green);
   color: var(--lightest-green);
   padding: 2%;
-  margin-bottom: 2rem;
   background-color: rgba(20, 20, 20, 100%);
 }
 
