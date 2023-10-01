@@ -111,16 +111,17 @@ body {
   border-color: var(--lightest-green);
 }
 
-.cart-icon-wrapper {
+.cart-link {
+  border: none;
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 10px;
   text-decoration: none;
   font-size: 1.2rem;
 }
 
-.cart-link {
-  border: none;
+.cart-link > img {
+  padding-bottom: 5px;
 }
 
 li {
