@@ -87,18 +87,40 @@ body {
 
 .site-nav > ul > li > a {
   color: var(--mid-green);
+  font-size: clamp(15px, 2vw, 1.5rem);
+  text-decoration: none;
+  border-bottom: 2px solid var(--mid-green);
 }
 
 .site-nav > ul > li > a:hover {
   color: var(--lightest-green);
+  border-color: var(--lightest-green);
 }
 
-.cart-link {
+.nav-products-button {
+  background: none;
+  border: none;
+  color: var(--mid-green);
+  font-size: clamp(15px, 2vw, 1.5rem);
+  border-bottom: 2px solid var(--mid-green);
+}
+
+.nav-products-button:hover {
+  cursor: pointer;
+  color: var(--lightest-green);
+  border-color: var(--lightest-green);
+}
+
+.cart-icon-wrapper {
   display: flex;
   align-items: center;
   gap: 5px;
   text-decoration: none;
   font-size: 1.2rem;
+}
+
+.cart-link {
+  border: none;
 }
 
 li {

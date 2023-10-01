@@ -223,7 +223,7 @@ function App() {
   function renderCartLink() {
     if (cart.length > 0) {
       return (
-        <li>
+        <li className='cart-icon-wrapper'>
           <Link to='/cart' className='cart-link'>
             <p>{cart.length}</p>
             <img
