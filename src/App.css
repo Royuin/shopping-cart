@@ -102,13 +102,24 @@ body {
   position: absolute;
   background-color: rgba(20, 20, 20, 100%);
   top: 100%;
-  padding: 1.5rem 3rem;
+  padding: 1.5rem 2.5rem;
   white-space: nowrap;
   border-radius: 5px;
   transform-origin: 100%;
   transform-origin: top;
   animation: expand 500ms ease-in-out;
   font-size: clamp(11px, 1.5vw, 1.2rem);
+}
+
+.products-dropdown > li > a {
+  color: var(--mid-green);
+  border: none;
+  text-decoration: none;
+}
+
+.products-dropdown > li > a:hover {
+  color: var(--lightest-green);
+  border-bottom: solid 1.5px var(--lightest-green);
 }
 
 @keyframes expand {
