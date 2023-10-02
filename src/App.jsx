@@ -138,7 +138,7 @@ function App() {
       setDropdown('shrink');
       setTimeout(function () {
         setDropdown('hidden');
-      }, 700);
+      }, 500);
     }
   }
 
