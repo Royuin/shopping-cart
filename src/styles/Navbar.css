@@ -141,3 +141,59 @@ h1 {
 li {
   list-style: none;
 }
+
+.mobile-site-nav {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .site-nav {
+    display: none;
+  }
+
+  .mobile-site-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: double 0.75rem var(--lightest-green);
+    color: var(--lightest-green);
+    padding: 1%;
+    background-color: rgba(20, 20, 20, 100%);
+  }
+
+  .right-nav > li > a {
+    color: var(--mid-green);
+    font-size: clamp(15px, 2vw, 1.5rem);
+    text-decoration: none;
+    border-bottom: 2px solid var(--mid-green);
+  }
+
+  .right-nav > li > a:hover {
+    color: var(--lightest-green);
+    border-color: var(--lightest-green);
+  }
+
+  .hamburger-menu {
+    width: clamp(1.5em, 8vw, 35px);
+    border: none;
+    background-color: var(--mid-green);
+    border-radius: 3px;
+    display: grid;
+  }
+
+  .hamburger-menu:hover {
+    background-color: var(--lightest-green);
+    cursor: pointer;
+  }
+
+  .left-nav {
+    gap: 1em;
+  }
+
+  .right-nav {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    margin-right: 2%;
+  }
+}

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import cartIcon from '../assets/green-cart.png';
 import logoOutline from '../assets/logo-with-outline.png';
+import hamburgerMenu from '../assets/hamburger-menu.svg';
 import '../styles/Navbar.css';
 
 function Navbar({ cartLength, toggleProductsDropdown, dropdown }) {
@@ -33,50 +34,70 @@ function Navbar({ cartLength, toggleProductsDropdown, dropdown }) {
   }
 
   return (
-    <nav className='site-nav' aria-label='site'>
-      <div className='left-nav'>
-        <img
-          className='header-logo'
-          src={logoOutline}
-          alt='Logo of a tea kettle with matcha tea on the side.'
-        />
-        <h1> Reverie Tea </h1>
-      </div>
-      <ul>
-        <li>
-          <Link to='/'>Home</Link>
-        </li>
-        <li className='products-dropdown-wrapper'>
-          <button
-            className='nav-products-button '
-            onClick={toggleProductsDropdown}
-          >
-            Products
+    <>
+      {' '}
+      <nav className='site-nav' aria-label='site'>
+        <div className='left-nav'>
+          <img
+            className='header-logo'
+            src={logoOutline}
+            alt='Logo of a tea kettle with matcha tea on the side.'
+          />
+          <h1> Reverie Tea </h1>
+        </div>
+        <ul>
+          <li>
+            <Link to='/'>Home</Link>
+          </li>
+          <li className='products-dropdown-wrapper'>
+            <button
+              className='nav-products-button '
+              onClick={toggleProductsDropdown}
+            >
+              Products
+            </button>
+            <ul className={'products-dropdown ' + dropdown}>
+              <li>
+                <Link to='/products'>All Products</Link>
+              </li>
+              <li>
+                <Link to='/products/green-tea'>Green Tea</Link>
+              </li>
+              <li>
+                <Link to='/products/matcha'>Matcha</Link>
+              </li>
+              <li>
+                <Link to='/products/black-tea'>Black Tea</Link>
+              </li>
+              <li>
+                <Link to='/products/herbal-tea'>Herbal Tea</Link>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <Link to='/about'>About Us</Link>
+          </li>
+          {renderCartLink()}
+        </ul>
+      </nav>
+      <nav className='mobile-site-nav'>
+        <div className='left-nav'>
+          <img
+            className='header-logo'
+            src={logoOutline}
+            alt='Logo of a tea kettle with matcha tea on the side.'
+          />
+          <h1> Reverie Tea </h1>
+        </div>
+        <div className='right-nav'>
+          {' '}
+          {renderCartLink()}
+          <button className='hamburger-menu'>
+            <img src={hamburgerMenu} alt='' />
           </button>
-          <ul className={'products-dropdown ' + dropdown}>
-            <li>
-              <Link to='/products'>All Products</Link>
-            </li>
-            <li>
-              <Link to='/products/green-tea'>Green Tea</Link>
-            </li>
-            <li>
-              <Link to='/products/matcha'>Matcha</Link>
-            </li>
-            <li>
-              <Link to='/products/black-tea'>Black Tea</Link>
-            </li>
-            <li>
-              <Link to='/products/herbal-tea'>Herbal Tea</Link>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <Link to='/about'>About Us</Link>
-        </li>
-        {renderCartLink()}
-      </ul>
-    </nav>
+        </div>
+      </nav>
+    </>
   );
 }
 
