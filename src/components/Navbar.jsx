@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import cartIcon from '../assets/green-cart.png';
 import logoOutline from '../assets/logo-with-outline.png';
+import '../styles/Navbar.css';
 
 function Navbar({ cartLength, toggleProductsDropdown, dropdown }) {
   function renderCartLink() {
