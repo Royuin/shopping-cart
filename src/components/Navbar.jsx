@@ -3,8 +3,11 @@ import cartIcon from '../assets/green-cart.png';
 import logoOutline from '../assets/logo-with-outline.png';
 import hamburgerMenu from '../assets/hamburger-menu.svg';
 import '../styles/Navbar.css';
+import { useState } from 'react';
 
 function Navbar({ cartLength, toggleProductsDropdown, dropdown }) {
+  const [mobileOverlay, setMobileOverlay] = useState(false);
+
   function renderCartLink() {
     if (cartLength > 0) {
       return (
@@ -31,6 +34,72 @@ function Navbar({ cartLength, toggleProductsDropdown, dropdown }) {
         </Link>
       </li>
     );
+  }
+
+  function toggleMobileOverlay() {
+    if (mobileOverlay === true) {
+      setMobileOverlay(false);
+    } else {
+      setMobileOverlay(true);
+    }
+  }
+
+  function renderHamburgerMenu() {
+    if (mobileOverlay === false) {
+      return (
+        <button className='hamburger-menu' onClick={toggleMobileOverlay}>
+          <img src={hamburgerMenu} alt='' />
+        </button>
+      );
+    } else if (mobileOverlay === true) {
+      return (
+        <button className='hamburger-menu' onClick={toggleMobileOverlay}>
+          X
+        </button>
+      );
+    }
+  }
+
+  function renderMobileOverlay() {
+    if (mobileOverlay === true) {
+      return (
+        <div className='mobile-overlay'>
+          <ul className='mobile-links'>
+            <li>
+              <Link to='/'>Home</Link>
+            </li>
+            <li className='products-dropdown-wrapper'>
+              <button
+                className='nav-products-button '
+                onClick={toggleProductsDropdown}
+              >
+                Products
+              </button>
+              <ul className={'products-dropdown ' + dropdown}>
+                <li>
+                  <Link to='/products'>All Products</Link>
+                </li>
+                <li>
+                  <Link to='/products/green-tea'>Green Tea</Link>
+                </li>
+                <li>
+                  <Link to='/products/matcha'>Matcha</Link>
+                </li>
+                <li>
+                  <Link to='/products/black-tea'>Black Tea</Link>
+                </li>
+                <li>
+                  <Link to='/products/herbal-tea'>Herbal Tea</Link>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <Link to='/about'>About Us</Link>
+            </li>
+          </ul>
+        </div>
+      );
+    }
   }
 
   return (
@@ -92,11 +161,10 @@ function Navbar({ cartLength, toggleProductsDropdown, dropdown }) {
         <div className='right-nav'>
           {' '}
           {renderCartLink()}
-          <button className='hamburger-menu'>
-            <img src={hamburgerMenu} alt='' />
-          </button>
+          {renderHamburgerMenu()}
         </div>
       </nav>
+      {renderMobileOverlay()}
     </>
   );
 }
