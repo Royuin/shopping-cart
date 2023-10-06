@@ -100,6 +100,7 @@ function Navbar({ cartLength, toggleProductsDropdown, dropdown }) {
         </div>
       );
     }
+    return;
   }
 
   return (
