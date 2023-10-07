@@ -8,6 +8,14 @@ import { useState } from 'react';
 function Navbar({ cartLength, toggleProductsDropdown, dropdown }) {
   const [mobileOverlay, setMobileOverlay] = useState(false);
 
+  function displayMobileOverlay() {
+    setMobileOverlay(true);
+  }
+
+  function hideMobileOverlay() {
+    setMobileOverlay(false);
+  }
+
   function renderCartLink() {
     if (cartLength > 0) {
       return (
@@ -36,24 +44,16 @@ function Navbar({ cartLength, toggleProductsDropdown, dropdown }) {
     );
   }
 
-  function toggleMobileOverlay() {
-    if (mobileOverlay === true) {
-      setMobileOverlay(false);
-    } else {
-      setMobileOverlay(true);
-    }
-  }
-
   function renderHamburgerMenu() {
     if (mobileOverlay === false) {
       return (
-        <button className='hamburger-menu' onClick={toggleMobileOverlay}>
+        <button className='hamburger-menu' onClick={displayMobileOverlay}>
           <img src={hamburgerMenu} alt='' />
         </button>
       );
     } else if (mobileOverlay === true) {
       return (
-        <button className='hamburger-menu' onClick={toggleMobileOverlay}>
+        <button className='hamburger-menu' onClick={hideMobileOverlay}>
           X
         </button>
       );
@@ -66,35 +66,47 @@ function Navbar({ cartLength, toggleProductsDropdown, dropdown }) {
         <div className='mobile-overlay'>
           <ul className='mobile-links'>
             <li>
-              <Link to='/'>Home</Link>
+              <Link to='/' onClick={hideMobileOverlay}>
+                Home
+              </Link>
             </li>
             <li className='products-dropdown-wrapper'>
               <button
-                className='nav-products-button '
+                className='nav-products-button'
                 onClick={toggleProductsDropdown}
               >
                 Products
               </button>
               <ul className={'products-dropdown ' + dropdown}>
                 <li>
-                  <Link to='/products'>All Products</Link>
+                  <Link to='/products' onClick={hideMobileOverlay}>
+                    All Products
+                  </Link>
                 </li>
                 <li>
                   <Link to='/products/green-tea'>Green Tea</Link>
                 </li>
                 <li>
-                  <Link to='/products/matcha'>Matcha</Link>
+                  <Link to='/products/matcha' onClick={hideMobileOverlay}>
+                    Matcha
+                  </Link>
                 </li>
                 <li>
-                  <Link to='/products/black-tea'>Black Tea</Link>
+                  <Link to='/products/black-tea' onClick={hideMobileOverlay}>
+                    Black Tea
+                  </Link>
                 </li>
                 <li>
-                  <Link to='/products/herbal-tea'>Herbal Tea</Link>
+                  <Link to='/products/herbal-tea' onClick={hideMobileOverlay}>
+                    Herbal Tea
+                  </Link>
                 </li>
               </ul>
             </li>
             <li>
-              <Link to='/about'>About Us</Link>
+              <Link to='/about' onClick={hideMobileOverlay}>
+                About Us
+              </Link>
             </li>
           </ul>
         </div>
