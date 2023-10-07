@@ -1,8 +1,7 @@
 import '../styles/Products.css';
 import { Link } from 'react-router-dom';
 
-function Products({productsArray}) {
-
+function Products({ productsArray }) {
   function renderProducts() {
     const productItems = productsArray.map((product) => {
       return (
@@ -16,18 +15,20 @@ function Products({productsArray}) {
           <p>{product.name}</p>
           <p>${product.price}</p>
         </li>
-      )});
-    return <ul className='product-list'> {productItems}</ul>
+      );
+    });
+    return <ul className='product-list'> {productItems}</ul>;
   }
 
   return (
     <main>
       <h2>All Products</h2>
-      <p><em>Price is per 3 oz</em></p>
+      <p>
+        <em>Price is per 3 oz</em>
+      </p>
       {renderProducts()}
     </main>
-  )
-
+  );
 }
 
 export default Products;
