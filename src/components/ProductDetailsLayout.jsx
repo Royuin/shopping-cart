@@ -1,4 +1,4 @@
-import { Outlet, Link, useParams, useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import jasmine from '../assets/jasmine-leaves.jpeg';
 import '../styles/ProductsDetailsLayout.css';
 import chamomile from '../assets/chamomile-leaves.jpg';
@@ -12,7 +12,7 @@ import matchaCooking from '../assets/matcha-cooking-powder.jpg';
 import matchaCeremonial from '../assets/matcha-ceremonial-powder.jpg';
 import { useEffect, useState } from 'react';
 
-function ProductDetailsLayout({ addToCart, productsArray, incrementQuantity }) {
+function ProductDetailsLayout({ addToCart, productsArray }) {
   const { id } = useParams();
   const product = productsArray.find((product) => product.name === id);
   const [quantity, setQuantity] = useState(1);

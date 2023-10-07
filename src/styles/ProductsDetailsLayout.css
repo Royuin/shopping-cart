@@ -20,6 +20,10 @@
   margin-bottom: 5%;
 }
 
+.details-right > h2 {
+  font-size: clamp(23px, 1.5vw, 1.5rem);
+}
+
 .details-right {
   display: flex;
   flex-direction: column;
