@@ -11,26 +11,32 @@ import matchaCooking from '../assets/matcha-cooking-powder.jpg';
 import matchaCeremonial from '../assets/matcha-ceremonial-powder.jpg';
 import { useEffect, useState } from 'react';
 
-function Cart({cart, handleQuantityChange, decrementQuantity, incrementQuantity, removeFromCart, clearCart}) {
-
+function Cart({
+  cart,
+  handleQuantityChange,
+  decrementQuantity,
+  incrementQuantity,
+  removeFromCart,
+  clearCart,
+}) {
   const [checkoutMessage, setCheckoutMessage] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
-      setCheckoutMessage(false)
-    }, 3000)
-  },[checkoutMessage])
+      setCheckoutMessage(false);
+    }, 3000);
+  }, [checkoutMessage]);
 
   function cartSubtotal() {
     const subtotal = cart.reduce((total, currentProduct) => {
       return total + currentProduct.quantity * currentProduct.price;
-    },0)
-    return (<p>${subtotal.toFixed(2)}</p>)
+    }, 0);
+    return <p>${subtotal.toFixed(2)}</p>;
   }
 
   function displayCheckoutMessage() {
     if (checkoutMessage === true) {
-      return <p className='checkout-message'>Checkout Successful!</p>
+      return <p className='checkout-message'>Checkout Successful!</p>;
     }
   }
 
@@ -42,18 +48,43 @@ function Cart({cart, handleQuantityChange, decrementQuantity, incrementQuantity,
             <img className='cart-img' src={product.src} alt={product.alt} />
             <h3>{product.name}</h3>
           </div>
-          <p>${product.price}</p>
+          <div className='price-wrap'>
+            {' '}
+            <p className='price'>Price:</p>
+            <p>${product.price}</p>
+          </div>
           <div className='product-quantity-wrap'>
-            <button className='decrement-button' onClick={() => decrementQuantity(product.id, product.quantity)} >-</button>
-            <input className='quantity-input' type='tel' value={product.quantity} onChange={(e) => {
-              handleQuantityChange(e, product.id) 
-            }}
+            <label className='cart-quantity-label'>Quantity:</label>
+            <button
+              className='decrement-button'
+              onClick={() => decrementQuantity(product.id, product.quantity)}
+            >
+              -
+            </button>
+            <input
+              className='quantity-input'
+              type='tel'
+              value={product.quantity}
+              onChange={(e) => {
+                handleQuantityChange(e, product.id);
+              }}
             ></input>
-            <button className='increment-button' onClick={() => incrementQuantity(product.id)} >+</button>
+            <button
+              className='increment-button'
+              onClick={() => incrementQuantity(product.id)}
+            >
+              +
+            </button>
           </div>
           <div className='remove-and-total'>
-            <p>${Math.round((product.quantity * product.price) * 100) / 100}</p>
-            <button className='remove-from-cart' onClick={() => removeFromCart(product.id)}>X</button>
+            <p className='total'>Total:</p>
+            <p>${Math.round(product.quantity * product.price * 100) / 100}</p>
+            <button
+              className='remove-from-cart'
+              onClick={() => removeFromCart(product.id)}
+            >
+              X
+            </button>
           </div>
         </li>
       );
@@ -65,32 +96,45 @@ function Cart({cart, handleQuantityChange, decrementQuantity, incrementQuantity,
   if (cart.length < 1) {
     return (
       <>
-      <h2 className='empty-cart-heading'>Your cart is empty!</h2>
-      {displayCheckoutMessage()}
+        <h2 className='empty-cart-heading'>Your cart is empty!</h2>
+        {displayCheckoutMessage()}
       </>
-    )
-  }
-
-  else {
+    );
+  } else {
     return (
       <main>
         <header className='cart-header'>
-          <p><strong>Item</strong></p> 
-          <p><strong>Price</strong></p> 
-          <p><strong>Quantity</strong></p> 
-          <p><strong>Total</strong></p>
+          <p>
+            <strong>Item</strong>
+          </p>
+          <p>
+            <strong>Price</strong>
+          </p>
+          <p>
+            <strong>Quantity</strong>
+          </p>
+          <p>
+            <strong>Total</strong>
+          </p>
         </header>
         {renderProducts()}
         <section className='subtotal-section'>
           <div className='subtotal-wrapper'>
-          <h4>Subtotal:</h4>
-          {cartSubtotal()}
+            <h4>Subtotal:</h4>
+            {cartSubtotal()}
           </div>
-          <p><em>Shipping and taxes computed at checkout</em></p>
-          <button className='checkout-button' onClick={() => [clearCart(), setCheckoutMessage(true)]}>Checkout</button>
+          <p>
+            <em>Shipping and taxes computed at checkout</em>
+          </p>
+          <button
+            className='checkout-button'
+            onClick={() => [clearCart(), setCheckoutMessage(true)]}
+          >
+            Checkout
+          </button>
         </section>
       </main>
-    )
+    );
   }
 }
 

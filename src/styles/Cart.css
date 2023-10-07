@@ -41,6 +41,12 @@
   grid-auto-flow: column;
 }
 
+.price,
+.total,
+.cart-quantity-label {
+  display: none;
+}
+
 .product-quantity-wrap {
   display: flex;
   justify-content: center;
@@ -173,5 +179,16 @@
   }
   .cart-img {
     width: clamp(75px, 17vw, 250px);
+  }
+
+  .price,
+  .total,
+  .cart-quantity-label {
+    display: block;
+    margin-right: 5px;
+  }
+
+  .price-wrap {
+    display: flex;
   }
 }
