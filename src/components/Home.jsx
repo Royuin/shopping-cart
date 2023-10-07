@@ -1,5 +1,4 @@
 import '../styles/Home.css';
-import greenField from '../assets/green-grass-field.jpeg';
 import jasmineLeaves from '../assets/jasmine-leaves.jpeg';
 import blackLeaves from '../assets/black-tea-leaves.jpg';
 import chamomileLeaves from '../assets/chamomile-leaves.jpg';
@@ -9,7 +8,6 @@ function Home() {
   return (
     <>
       <header className='home-header'>
-        {/* <img className='home-header-img' src={greenField} alt='Person standing green plant field' /> */}
         <div className='home-img-text'>
           <p className='support-health'>
             {' '}
