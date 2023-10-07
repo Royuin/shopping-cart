@@ -27,7 +27,6 @@ import Navbar from './components/Navbar';
 
 function App() {
   const [cart, setCart] = useState([]);
-  const [dropdown, setDropdown] = useState('hidden');
   const [productsArray, setProductsArray] = useState([
     {
       name: 'Green Jasmine',
@@ -131,17 +130,6 @@ function App() {
     },
   ]);
 
-  function toggleProductsDropdown() {
-    if (dropdown === 'hidden') {
-      setDropdown('');
-    } else {
-      setDropdown('shrink');
-      setTimeout(function () {
-        setDropdown('hidden');
-      }, 500);
-    }
-  }
-
   function productInCart(product) {
     for (let i = 0; i < cart.length; i += 1) {
       if (cart[i].id === product.id) {
@@ -225,11 +213,7 @@ function App() {
 
   return (
     <div className='App'>
-      <Navbar
-        cartLength={cart.length}
-        toggleProductsDropdown={toggleProductsDropdown}
-        dropdown={dropdown}
-      />
+      <Navbar cartLength={cart.length} />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/products' element={<ProductsLayout />}>

@@ -5,8 +5,9 @@ import hamburgerMenu from '../assets/hamburger-menu.svg';
 import '../styles/Navbar.css';
 import { useState } from 'react';
 
-function Navbar({ cartLength, toggleProductsDropdown, dropdown }) {
+function Navbar({ cartLength }) {
   const [mobileOverlay, setMobileOverlay] = useState(false);
+  const [dropdown, setDropdown] = useState('hidden');
 
   function displayMobileOverlay() {
     setMobileOverlay(true);
@@ -14,6 +15,17 @@ function Navbar({ cartLength, toggleProductsDropdown, dropdown }) {
 
   function hideMobileOverlay() {
     setMobileOverlay(false);
+  }
+
+  function toggleProductsDropdown() {
+    if (dropdown === 'hidden') {
+      setDropdown('');
+    } else {
+      setDropdown('shrink');
+      setTimeout(function () {
+        setDropdown('hidden');
+      }, 500);
+    }
   }
 
   function renderCartLink() {
