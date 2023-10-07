@@ -1,15 +1,15 @@
 import '../styles/About.css';
-import workerTeaPlantation from '../assets/worker-tea-plantation.jpg';
+// import workerTeaPlantation from '../assets/worker-tea-plantation.jpg';
 
 function About() {
   return (
     <>
       <header className='about-header'>
-        <img
+        {/* <img
           className='about-header-img'
           src={workerTeaPlantation}
           alt='Worker in tea plantation'
-        />
+        /> */}
         <div className='about-img-text'>
           <h3>About us</h3>
         </div>

@@ -3,22 +3,18 @@
   --darkest-green: #052e16;
   --mid-green: #22c55e;
   --mid-wood: #704327;
-  --light-wood: #DEB887;
+  --light-wood: #deb887;
 }
 
 .about-header {
   display: flex;
   place-content: center;
   flex-direction: column;
-  margin-bottom: 18vw;
+  margin-bottom: 1.5rem;
   align-items: center;
-}
-
-header > img {
-  width: 100vw;
-  height: 75%;
-  position: absolute;
-  z-index: -1;
+  background: url(../assets/worker-tea-plantation.jpg) no-repeat center;
+  background-size: 100%;
+  padding: 10vw 0;
 }
 
 .about-main {
@@ -27,9 +23,8 @@ header > img {
 
 .about-img-text {
   color: var(--lightest-green);
-  font-size: clamp(1.2rem, 3vw, 50px);
+  font-size: clamp(20px, 3vw, 50px);
   text-align: center;
-  margin-top: 5%;
   background-color: rgba(20, 20, 20, 75%);
   width: 40%;
 }
