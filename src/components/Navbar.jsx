@@ -84,7 +84,9 @@ function Navbar({ cartLength, toggleProductsDropdown, dropdown }) {
                   </Link>
                 </li>
                 <li>
-                  <Link to='/products/green-tea'>Green Tea</Link>
+                  <Link to='/products/green-tea' onClick={hideMobileOverlay}>
+                    Green Tea
+                  </Link>
                 </li>
                 <li>
                   <Link to='/products/matcha' onClick={hideMobileOverlay}>
