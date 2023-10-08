@@ -176,7 +176,7 @@ li {
 
   .right-nav > li > a {
     color: var(--mid-green);
-    font-size: clamp(15px, 2vw, 1.5rem);
+    font-size: clamp(17px, 2vw, 1.5rem);
     text-decoration: none;
     border-bottom: 2px solid var(--mid-green);
   }
@@ -187,11 +187,14 @@ li {
   }
 
   .hamburger-menu {
-    width: clamp(1.5em, 8vw, 35px);
+    width: clamp(2em, 5vw, 35px);
+    height: clamp(2em, 5vw, 35px);
     border: none;
     background-color: var(--mid-green);
     border-radius: 3px;
     display: grid;
+    font-weight: bold;
+    align-items: center;
   }
 
   .hamburger-menu:hover {
@@ -234,9 +237,10 @@ li {
 
   .mobile-links > li > * {
     color: var(--mid-green);
+    font-size: clamp(25px, 2vw, 1.5rem);
   }
 
   .mobile-links > .products-dropdown-wrapper > .products-dropdown {
-    font-size: 16px;
+    font-size: 20px;
   }
 }
