@@ -35,8 +35,12 @@
   margin-bottom: 10px;
 }
 
+.quantity-label {
+  margin-top: 0.85rem;
+}
+
 .quantity-wrapper > #quantity {
-  width: 10%;
+  width: 40px;
   font-size: 1.2rem;
   border: 1px solid var(--darkest-green);
 }
@@ -45,6 +49,17 @@
   margin-top: 5px;
   display: flex;
   align-items: center;
+  height: 30px;
+}
+
+.quantity-wrapper > * {
+  height: 100%;
+  width: 25px;
+}
+
+.quantity-wrapper > button {
+  font-weight: bold;
+  font-size: 20px;
 }
 
 .quantity-error {
