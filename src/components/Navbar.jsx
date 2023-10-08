@@ -8,6 +8,7 @@ import { useState } from 'react';
 function Navbar({ cartLength }) {
   const [mobileOverlay, setMobileOverlay] = useState(false);
   const [dropdown, setDropdown] = useState('hidden');
+  const [dropdownActive, setDropdownActive] = useState(false);
 
   function displayMobileOverlay() {
     setMobileOverlay(true);
@@ -18,14 +19,41 @@ function Navbar({ cartLength }) {
   }
 
   function toggleProductsDropdown() {
-    if (dropdown === 'hidden') {
+    if (dropdownActive === false) {
+      setDropdownActive(true);
       setDropdown('');
-    } else {
+    } else if (dropdownActive === true) {
+      setDropdownActive(false);
       setDropdown('shrink');
       setTimeout(function () {
         setDropdown('hidden');
       }, 500);
     }
+  }
+
+  // function toggleProductsDropdown(e) {
+  //   if (e.target.classList.contains('hidden')) {
+  //     console.log('I work!');
+  //   }
+  //   if (dropdown === 'hidden') {
+  //     setDropdown('');
+  //   } else {
+  //     setDropdown('shrink');
+  //     setTimeout(function () {
+  //       setDropdown('hidden');
+  //     }, 500);
+  //   }
+  // }
+
+  function displayProductsDropdown() {
+    setDropdown('');
+  }
+
+  function hideProductsDropdown() {
+    setDropdown('shrink');
+    setTimeout(function () {
+      setDropdown('hidden');
+    }, 500);
   }
 
   function renderCartLink() {
@@ -85,7 +113,9 @@ function Navbar({ cartLength }) {
             <li className='products-dropdown-wrapper'>
               <button
                 className='nav-products-button'
-                onClick={toggleProductsDropdown}
+                onClick={(e) => {
+                  toggleProductsDropdown(e);
+                }}
               >
                 Products
               </button>
