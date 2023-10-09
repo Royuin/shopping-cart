@@ -82,7 +82,6 @@ h1 {
   padding: 1.5rem 2.5rem;
   white-space: nowrap;
   border-radius: 5px;
-  transform-origin: 100%;
   transform-origin: top;
   animation: expand 500ms ease-in-out;
   font-size: clamp(11px, 1.5vw, 1.2rem);
@@ -224,6 +223,8 @@ li {
     height: 100%;
     transition: 0.5s ease;
     z-index: 1;
+    transform-origin: top;
+    animation: expand 700ms ease-in-out;
   }
 
   .mobile-links {
