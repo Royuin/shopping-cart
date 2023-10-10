@@ -19,7 +19,4 @@ This project was great at solidifying my knowledge of react while also introduci
 - Make tests for renderProducts pass with components using useOutletContext instead of props
 - Create a single renderProducts function that takes parameter to choose what products to filter out
 - Test w3 validator if main tag can be used on each page with different routes
-- Make responsive
 - Refactor to use Typescript
-- Migrate project to Vite from Create React App
-- Add dropdown menu for different types of products
