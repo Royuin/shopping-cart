@@ -15,7 +15,7 @@
   background: url(../assets/matcha-table-whisk.jpg) no-repeat center;
   background-size: 100%;
   padding: 10vw 0;
-  margin-bottom: 1.5rem;
+  /* margin-bottom: 1.5rem; */
 }
 
 .our-products-heading {
@@ -28,12 +28,35 @@
 
 aside {
   width: 25vw;
-  padding: 25px 0 25px 3%;
+  background-color: var(--mid-wood);
+  position: relative;
+  box-shadow: inset 0px 0px 25px var(--darkest-green);
+  /* z-index: -1; */
 }
 
-aside > ul {
+aside > nav {
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+}
+
+aside > nav > ul {
   display: flex;
   flex-direction: column;
+  gap: 1.5vw;
+  padding-top: 20%;
+}
+
+aside > nav > ul > li > a {
+  font-size: clamp(18px, 1.75vw, 28px);
+  color: var(--lightest-green);
+  text-decoration: none;
+}
+
+aside > nav > ul > li > a:hover {
+  text-decoration: underline;
+  color: var(--mid-green);
 }
 
 .products-with-aside {
@@ -42,6 +65,7 @@ aside > ul {
 
 .products-with-aside > main {
   width: 100%;
+  margin-top: 1.5rem;
 }
 
 .products-with-aside > main > h2 {
