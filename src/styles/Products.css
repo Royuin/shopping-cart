@@ -15,7 +15,6 @@
   background: url(../assets/matcha-table-whisk.jpg) no-repeat center;
   background-size: 100%;
   padding: 10vw 0;
-  /* margin-bottom: 1.5rem; */
 }
 
 .our-products-heading {
@@ -31,7 +30,6 @@ aside {
   background-color: var(--mid-wood);
   position: relative;
   box-shadow: inset 0px 0px 25px var(--darkest-green);
-  /* z-index: -1; */
 }
 
 aside > nav {
