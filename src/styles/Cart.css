@@ -112,20 +112,15 @@
 }
 
 .checkout-message {
-  position: absolute;
   display: grid;
   place-content: center;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
   margin: auto;
-  width: 30%;
-  height: 25%;
+  padding: 5vw 10vw;
   background-color: var(--mid-wood);
   color: var(--lightest-green);
   border: 5px double var(--mid-green);
   font-size: 1.5rem;
+  text-align: center;
 }
 
 .subtotal-section {
